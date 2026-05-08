@@ -1,3 +1,4 @@
+// app/root.tsx
 import {
   isRouteErrorResponse,
   Links,
@@ -5,10 +6,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useParams,
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+// 사전에 정의한 언어 정보를 가져오는 영역
+import { DICTIONARY, DEFAULT_LANG } from "./constants/dictionary";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -24,8 +28,15 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const params = useParams();
+  
+  // 주소창에서 언어 코드를 확인하고, 없으면 기본값(en)을 사용하는 영역
+  const lang = params.lang;
+  const currentLang = (lang && DICTIONARY[lang]) ? lang : DEFAULT_LANG;
+
   return (
-    <html lang="en">
+    // 검색 로봇(SEO)을 위해 html 태그에 언어 설정을 주입하는 영역
+    <html lang={currentLang}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
