@@ -43,10 +43,30 @@ export const UtilityManager: React.FC = () => {
 
       {/* 헤더 타이틀 및 서비스 설명 섹션 */}
       <div className="relative z-10 mb-12">
-        <h1 className="text-5xl font-black tracking-tight text-slate-900 dark:text-white mb-4">
-          {t.title.split("-")[0]}{" "}
-          <span className="text-blue-600">-{t.title.split("-")[1] || ""}</span>
-        </h1>
+        <div className="relative mb-14">
+          {/* 디자인 강조용 상단 배지 영역 */}
+          <div className="inline-block px-3 py-1 mb-5 text-[10px] font-bold tracking-[0.2em] text-blue-600 uppercase bg-blue-50 dark:bg-blue-900/30 rounded-lg border border-blue-100 dark:border-blue-800">
+            Universal Digital Toolkit
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter text-slate-900 dark:text-white leading-[1.05]">
+            {t.title.split("-")[0]}
+            <span className="relative ml-2 inline-block">
+              {/* 텍스트 하단 광채 효과 영역 */}
+              <span className="absolute -inset-2 bg-blue-500/15 blur-3xl rounded-full" />
+              <span className="relative text-transparent bg-clip-text bg-linear-to-br from-blue-600 via-blue-500 to-indigo-400">
+                -{t.title.split("-")[1] || ""}
+              </span>
+            </span>
+          </h1>
+
+          {/* 제목 하단 디자인 포인트 바 영역 */}
+          <div className="flex gap-1.5 mt-6">
+            <div className="w-12 h-1.5 bg-blue-600 rounded-full" />
+            <div className="w-3 h-1.5 bg-blue-600/30 rounded-full" />
+            <div className="w-1.5 h-1.5 bg-blue-600/10 rounded-full" />
+          </div>
+        </div>
         <p className="max-w-2xl text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
           {t.desc}
         </p>
