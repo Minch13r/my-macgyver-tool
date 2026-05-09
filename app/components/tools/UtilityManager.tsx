@@ -24,8 +24,9 @@ export const UtilityManager: React.FC = () => {
   const currentLang = lang && DICTIONARY[lang] ? lang : DEFAULT_LANG;
   const t = DICTIONARY[currentLang] as LanguagePack;
 
-  // 후원 섹션 활성화 여부 판별
-  const showToss = currentLang === "ko" && t.toss;
+  // 토스 기부 기능 활성화 스위치 (주석 해제 시 true로 변경)
+  const isTossActive = false;
+  const showToss = currentLang === "ko" && t.toss && isTossActive;
 
   // 도구별 아이콘 및 경로 메타데이터 정의
   const toolMetadata = [
@@ -53,11 +54,11 @@ export const UtilityManager: React.FC = () => {
 
       {/* 대시보드 인터랙션 그리드 영역 */}
       <div className="relative z-10 grid grid-cols-1 gap-6">
-        {/* 후원 카드 컨테이너 (언어별 가변 그리드 적용) */}
+        {/* 후원 카드 컨테이너 (언어 및 활성화 상태별 가변 그리드) */}
         <div
           className={`grid gap-6 ${showToss ? "md:grid-cols-2" : "grid-cols-1"}`}
         >
-          {/* 커피 후원 링크 카드 */}
+          {/* 커피 후원 링크 카드 영역 */}
           <Link
             to={`/${currentLang}/donate`}
             className="group/card flex flex-col justify-between p-7 bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 rounded-3xl hover:border-orange-500/50 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300"
@@ -80,10 +81,8 @@ export const UtilityManager: React.FC = () => {
             </div>
           </Link>
 
-          {/* 토스 기부 링크 카드 (한국어 한정 노출) */}
-          {/* 우선 비활성화 */}
-          {/* }
-          {showToss && (
+          {/* 토스 기부 링크 카드 (필요 시 주석 해제하여 사용) */}
+          {/* {showToss && (
             <Link
               to={`/${currentLang}/donate`}
               className="group/card flex flex-col justify-between p-7 bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 rounded-3xl hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300"
@@ -103,8 +102,8 @@ export const UtilityManager: React.FC = () => {
                 </p>
               </div>
             </Link>
-          )} */}
-            
+          )} 
+          */}
         </div>
 
         {/* sideMenu 기반 동적 도구 바로가기 목록 영역 */}
@@ -120,7 +119,6 @@ export const UtilityManager: React.FC = () => {
                   {tool.icon}
                 </div>
                 <span className="text-lg font-bold tracking-tight">
-                  {/* 사전 데이터의 sideMenu 객체에서 키를 동적으로 참조 영역 */}
                   {(t.sideMenu as any)[tool.key]}
                 </span>
               </div>
