@@ -48,6 +48,7 @@ export default function Layout() {
           getLanguagePath={getLanguagePath} 
           activeToolName={activeToolName}
           onMenuClick={() => setIsMobileMenuOpen(true)}
+          t={t}
         />
         
         {/* 메인페이지 */}
