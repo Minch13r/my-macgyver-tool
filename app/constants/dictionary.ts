@@ -42,9 +42,9 @@ export const DEFAULT_LANG = 'en';
 export const DICTIONARY: Record<string, LanguagePack> = {
   // 영문(English) 사전 리소스 정의
   en: {
-    title: "OMNI TOOLKIT",
+    title: "MacGyver-Tool",
     theme: "Theme",
-    sideMenu: { img: "Image Conv", count: "Counter", sha: "SHA Hash", bcrypt: "Bcrypt" },
+    sideMenu: { img: "Image Conv", count: "Counter", sha: "SHA Hash", bcrypt: "Bcrypt Hash" },
     donate: "Support with Coffee",
     adFree: "Enter Ad-Free Code",
     adActive: "Ad-Free Mode Active",
@@ -64,9 +64,9 @@ export const DICTIONARY: Record<string, LanguagePack> = {
   },
   // 국문(Korean) 사전 리소스 정의
   ko: {
-    title: "옴니 툴킷",
+    title: "MacGyver-Tool",
     theme: "테마",
-    sideMenu: { img: "이미지 변환", count: "글자수 세기", sha: "SHA 암호화", bcrypt: "비크립트" },
+    sideMenu: { img: "이미지 변환", count: "글자수 세기", sha: "SHA 암호화", bcrypt: "Bcyrpt 암호화" },
     donate: "커피 한 잔 후원하기",
     adFree: "광고 제거 코드 입력",
     adActive: "광고 없는 모드 활성화 중",
@@ -86,9 +86,9 @@ export const DICTIONARY: Record<string, LanguagePack> = {
   },
   // 일문(Japanese) 사전 리소스 정의
   ja: {
-    title: "オムニツールキット",
+    title: "MacGyver-Tool",
     theme: "テーマ",
-    sideMenu: { img: "画像変換", count: "文字数カウント", sha: "SHA暗호化", bcrypt: "Bcrypt" },
+    sideMenu: { img: "画像変換", count: "文字数カウント", sha: "SHA暗호化", bcrypt: "Bcrypt暗호化" },
     donate: "コーヒーを支援する",
     adFree: "広告除去コード入力",
     adActive: "広告なしモード有効",
@@ -108,9 +108,9 @@ export const DICTIONARY: Record<string, LanguagePack> = {
   },
   // 불문(French) 사전 리소스 정의
   fr: {
-    title: "Boîte à Outils Omni",
+    title: "MacGyver-Tool",
     theme: "Mode",
-    sideMenu: { img: "Conv Image", count: "Compteur", sha: "SHA Hash", bcrypt: "Bcrypt" },
+    sideMenu: { img: "Conv Image", count: "Compteur", sha: "SHA Hash", bcrypt: "Bcrypt Hash" },
     donate: "Soutenir avec un café",
     adFree: "Entrer le code sans publicité",
     adActive: "Mode sans publicité actif",
@@ -130,9 +130,9 @@ export const DICTIONARY: Record<string, LanguagePack> = {
   },
   // 서문(Spanish) 사전 리소스 정의
   es: {
-    title: "Caja de Herramientas Omni",
+    title: "MacGyver-Tool",
     theme: "Tema",
-    sideMenu: { img: "Conv Imagen", count: "Contador", sha: "SHA Hash", bcrypt: "Bcrypt" },
+    sideMenu: { img: "Conv Imagen", count: "Contador", sha: "SHA Hash", bcrypt: "Bcrypt Hash" },
     donate: "Apoya con un café",
     adFree: "Ingresar código sin publicidad",
     adActive: "Modo sin anuncios activo",
