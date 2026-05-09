@@ -67,7 +67,7 @@ export const UtilityManager: React.FC = () => {
             <div className="w-1.5 h-1.5 bg-blue-600/10 rounded-full" />
           </div>
         </div>
-        <p className="max-w-2xl text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
+        <p className="max-w-2xl text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed whitespace-pre-line">
           {t.desc}
         </p>
       </div>
