@@ -1,7 +1,15 @@
 // src/components/tools/UtilityManager.tsx
 import React from "react";
 import { useParams, Link } from "react-router";
-import { Coffee, Heart, Calculator, ChevronRight } from "lucide-react";
+import {
+  Coffee,
+  Heart,
+  Calculator,
+  ChevronRight,
+  Image as ImageIcon,
+  Hash,
+  ShieldCheck,
+} from "lucide-react";
 import {
   DICTIONARY,
   DEFAULT_LANG,
