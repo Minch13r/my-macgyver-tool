@@ -8,7 +8,6 @@ import { Image, Hash, ShieldCheck, Calculator } from "lucide-react";
 import { Sidebar } from "~/components/layout/Sidebar";
 import { Header } from "~/components/layout/Header";
 import { MobileMenu } from "~/components/layout/MobileMenu";
-import { UtilityManager } from "~/components/tools/UtilityManager";
 
 export default function Layout() {
   const { lang } = useParams();
@@ -52,8 +51,8 @@ export default function Layout() {
         />
         
         {/* 메인페이지 */}
-        <main className="p-6 md:p-10 flex-1">
-          <UtilityManager />
+        <main className="p-4 md:p-6 flex-1 w-full mx-auto">
+          <Outlet />
         </main>
       </div>
 
