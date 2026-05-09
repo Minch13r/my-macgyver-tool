@@ -1,7 +1,7 @@
 // src/components/tools/UtilityManager.tsx
 import React from "react";
 import { useParams, Link } from "react-router";
-import { Coffee, Heart, Calculator } from "lucide-react"; // 아이콘 라이브러리 활용
+import { Coffee, Heart, Calculator, ChevronRight } from "lucide-react";
 import {
   DICTIONARY,
   DEFAULT_LANG,
@@ -9,77 +9,104 @@ import {
 } from "../../constants/dictionary";
 
 export const UtilityManager: React.FC = () => {
-  // 주소창 기반 현재 언어 파라미터 추출
+  // 현재 URL 경로에서 언어 파라미터 추출
   const { lang } = useParams();
 
-  // 사전 존재 여부 확인 및 기본 언어 할당
+  // 사전 데이터 참조 및 예외 케이스 처리
   const currentLang = lang && DICTIONARY[lang] ? lang : DEFAULT_LANG;
-
-  // 현재 언어 설정에 부합하는 사전 데이터 참조
   const t = DICTIONARY[currentLang] as LanguagePack;
 
+  // 후원 섹션 활성화 여부에 따른 그리드 컬럼 계산
+  const showToss = currentLang === "ko" && t.toss;
+
   return (
-    <div className="p-8 bg-white dark:bg-slate-900 transition-colors rounded-3xl shadow-lg border border-slate-100 dark:border-slate-800">
-      {/* 서비스 제목 및 상세 설명 출력 */}
-      <div className="mb-8">
-        <h1 className="text-4xl font-black text-blue-600 mb-3">{t.title}</h1>
-        <p className="text-base text-slate-500 dark:text-slate-400 leading-relaxed">
+    <div className="relative group p-10 bg-white/70 dark:bg-slate-900/40 backdrop-blur-xl transition-all duration-500 rounded-[2.5rem] border border-white/20 dark:border-slate-800 shadow-2xl">
+      {/* 장식용 추상 그래디언트 */}
+      <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none" />
+
+      {/* 텍스트 헤더 섹션 */}
+      <div className="relative z-10 mb-12">
+        <h1 className="text-5xl font-black tracking-tight text-slate-900 dark:text-white mb-4">
+          {t.title.split(" ")[0]}{" "}
+          <span className="text-blue-600">{t.title.split(" ")[1] || ""}</span>
+        </h1>
+        <p className="max-w-2xl text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
           {t.desc}
         </p>
       </div>
 
-      {/* 후원 및 도구 바로가기 카드 섹션 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {/* 커피 후원 카드 영역 */}
-        <Link
-          to={`/${currentLang}/donate`}
-          className="group flex flex-col p-5 bg-orange-50 dark:bg-orange-900/10 border border-orange-100 dark:border-orange-900/30 rounded-2xl hover:shadow-md transition-all"
+      {/* 후원 및 도구 액션 그리드 */}
+      <div className="relative z-10 grid grid-cols-1 gap-6">
+        {/* 후원 카드 컨테이너 (언어에 따라 1열 또는 2열 가변 그리드) 영역 */}
+        <div
+          className={`grid gap-6 ${showToss ? "md:grid-cols-2" : "grid-cols-1"}`}
         >
-          <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 bg-orange-500 rounded-lg text-white">
-              <Coffee size={24} />
-            </div>
-            <span className="font-bold text-orange-700 dark:text-orange-400">
-              {t.donate}
-            </span>
-          </div>
-          <p className="text-sm text-orange-600/70 dark:text-orange-400/60">
-            Buy me a coffee to keep this tool alive.
-          </p>
-        </Link>
-
-        {/* 한국어 사용자 전용 토스 기부 카드 영역 */}
-        {currentLang === "ko" && t.toss && (
+          {/* 커피 후원 섹션 영역 */}
           <Link
             to={`/${currentLang}/donate`}
-            className="group flex flex-col p-5 bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-2xl hover:shadow-md transition-all"
+            className="group/card flex flex-col justify-between p-7 bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 rounded-3xl hover:border-orange-500/50 hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300"
           >
-            <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-blue-500 rounded-lg text-white">
-                <Heart size={24} />
+            <div className="flex justify-between items-start mb-8">
+              <div className="p-3 bg-orange-500/10 text-orange-500 rounded-2xl group-hover/card:scale-110 transition-transform">
+                <Coffee size={28} strokeWidth={2.5} />
               </div>
-              <span className="font-bold text-blue-700 dark:text-blue-400">
-                {t.toss}
-              </span>
+              <ChevronRight className="text-slate-300 dark:text-slate-600 group-hover/card:translate-x-1 transition-transform" />
             </div>
-            <p className="text-sm text-blue-600/70 dark:text-blue-400/60">
-              토스로 간편하고 빠르게 마음을 전해보세요.
-            </p>
+            <div>
+              <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2">
+                {t.donate}
+              </h3>
+              <p className="text-sm text-slate-500 dark:text-slate-400 leading-snug">
+                {currentLang === "ko"
+                  ? "개발자의 지속적인 업데이트를 위해 커피 한 잔의 힘을 보태주세요."
+                  : "Support our development with a simple cup of coffee."}
+              </p>
+            </div>
           </Link>
-        )}
 
-        {/* 글자수 세기 도구 바로가기 영역 */}
+          {/* 토스 기부 섹션 (한국어 전용) 영역 */}
+          {showToss && (
+            <Link
+              to={`/${currentLang}/donate`}
+              className="group/card flex flex-col justify-between p-7 bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/50 rounded-3xl hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300"
+            >
+              <div className="flex justify-between items-start mb-8">
+                <div className="p-3 bg-blue-500/10 text-blue-500 rounded-2xl group-hover/card:scale-110 transition-transform">
+                  <Heart size={28} strokeWidth={2.5} />
+                </div>
+                <ChevronRight className="text-slate-300 dark:text-slate-600 group-hover/card:translate-x-1 transition-transform" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2">
+                  {t.toss}
+                </h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 leading-snug">
+                  토스 아이디로 간편하고 빠르게 익명 송금이 가능합니다.
+                </p>
+              </div>
+            </Link>
+          )}
+        </div>
+
+        {/* 하단 메인 도구 바로가기 섹션 영역 */}
         <Link
           to={`/${currentLang}/counter`}
-          className="md:col-span-2 flex items-center justify-between p-5 bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
+          className="flex items-center justify-between p-6 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-[1.5rem] hover:opacity-90 transition-all"
         >
           <div className="flex items-center gap-4">
-            <Calculator className="text-slate-400" size={20} />
-            <span className="font-semibold text-slate-700 dark:text-slate-300">
+            <div className="p-2 bg-white/10 dark:bg-slate-900/5 rounded-xl">
+              <Calculator size={20} />
+            </div>
+            <span className="text-lg font-bold tracking-tight">
               {t.sideMenu.count}
             </span>
           </div>
-          <span className="text-xs text-slate-400 font-medium">GO TOOL →</span>
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-black uppercase tracking-widest opacity-60">
+              Go to Tool
+            </span>
+            <ChevronRight size={16} />
+          </div>
         </Link>
       </div>
     </div>
