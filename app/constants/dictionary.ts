@@ -11,6 +11,7 @@ export interface LanguagePack {
     bcrypt: string;
   };
   donate: string;
+  toss?: string;
   adFree: string;
   adActive: string;
   desc: string;
@@ -68,6 +69,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     theme: "테마",
     sideMenu: { img: "이미지 변환", count: "글자수 세기", sha: "SHA 암호화", bcrypt: "Bcyrpt 암호화" },
     donate: "커피 한 잔 후원하기",
+    toss: "토스 기부하기",
     adFree: "광고 제거 코드 입력",
     adActive: "광고 없는 모드 활성화 중",
     desc: "이 도구는 평생 무료입니다. 개발자에게 따뜻한 커피 한 잔을 후원해 주세요!",
