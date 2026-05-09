@@ -1,6 +1,6 @@
 // src/constants/dictionary.ts
 
-// 언어팩 구조 통일성을 위한 타입 정의
+// 다국어 언어팩의 구조적 통일성을 규격화하는 타입 정의 영역
 export interface LanguagePack {
   title: string;
   theme: string;
@@ -12,6 +12,7 @@ export interface LanguagePack {
   };
   donate: string;
   toss?: string;
+  paypal?: string;
   adFree: string;
   adActive: string;
   desc: string;
@@ -36,10 +37,10 @@ export interface LanguagePack {
   };
 }
 
-// 기본 언어 설정
+// 기본 언어 설정 영역
 export const DEFAULT_LANG = "en";
 
-// 국가별 다국어 사전 리소스 관리 영역
+// 국가별 다국어 사전 리소스 관리 저장소 영역
 export const DICTIONARY: Record<string, LanguagePack> = {
   // 영문(English) 사전 리소스 정의 영역
   en: {
@@ -52,6 +53,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       bcrypt: "Bcrypt Hash",
     },
     donate: "Support with Coffee",
+    paypal: "Support with PayPal",
     adFree: "Enter Ad-Free Code",
     adActive: "Ad-Free Mode Active",
     desc: "Free online tools for image conversion, word count, and secure encryption. \nYour everyday digital Swiss knife - support our development with a coffee!",
@@ -80,6 +82,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     },
     donate: "커피 한 잔 후원하기",
     toss: "토스 기부하기",
+    paypal: "페이팔로 후원하기",
     adFree: "광고 제거 코드 입력",
     adActive: "광고 없는 모드 활성화 중",
     desc: "이미지 변환, 글자수 세기, 암호화까지 - \n일상의 번거로움을 해결해 주는 평생 무료 만능 도구함. \n개발자에게 따뜻한 커피 한 잔을 후원해 주세요!",
@@ -114,9 +117,10 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       bcrypt: "Bcrypt暗号化",
     },
     donate: "コーヒーを支援する",
+    paypal: "PayPalで支援する",
     adFree: "広告除去コード入力",
     adActive: "広告なしモード有効",
-    desc: "画像変換、文字数カウント、暗号化まで —\n日常のわずらわしさを解決する、永久無料の万能ツールボックス。\n開発者に温かいコーヒーを一杯ご馳走してください！",
+    desc: "画像変換、文字数カウント、暗号化まで —\n日常のわずらわしさを解決하는, 永久無料の万能ツールボックス。\n開発者に温かいコーヒーを一杯ご馳走してください！",
     copy: "コピー",
     download: "ダウンロード",
     img: {
@@ -148,6 +152,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       bcrypt: "Bcrypt Hash",
     },
     donate: "Soutenir avec un café",
+    paypal: "Soutenir avec PayPal",
     adFree: "Entrer le code sans publicité",
     adActive: "Mode sans publicité actif",
     desc: "Outils en ligne gratuits pour la conversion d'images, \nle comptage de mots et le cryptage. \nVotre couteau suisse numérique quotidien - offrez-moi un café !",
@@ -179,6 +184,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       bcrypt: "Bcrypt Hash",
     },
     donate: "Apoya con un café",
+    paypal: "Apoya con PayPal",
     adFree: "Ingresar código sin publicidad",
     adActive: "Modo sin anuncios activo",
     desc: "Herramientas gratuitas para convertir imágenes, \ncontar palabras y cifrado seguro. \nTu navaja suiza digital para el día a día. ¡Invítame a un café!",
