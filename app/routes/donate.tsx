@@ -16,7 +16,11 @@ export default function DonatePage() {
   const currentLang = lang && DICTIONARY[lang] ? lang : DEFAULT_LANG;
   const t = DICTIONARY[currentLang];
 
-  // 후원자에게 제공하는 가치 목록 정의 영역
+  // 📍 토스 기부 기능 활성 제어 스위치 영역
+  const isTossActive = false;
+  const showToss = currentLang === "ko" && t.toss && isTossActive;
+
+  // 후원자 제공 가치 목록 정의 영역
   const benefits = [
     {
       id: 1,
@@ -87,11 +91,13 @@ export default function DonatePage() {
         </div>
       </div>
 
-      {/* 실질적인 후원 수단 카드 그리드 영역 */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* 1. 커피 후원 카드 (Buy Me a Coffee) 영역 */}
+      {/* 📍 가변 그리드가 적용된 후원 수단 카드 영역 */}
+      <div
+        className={`grid grid-cols-1 ${showToss ? "md:grid-cols-3" : "md:grid-cols-2"} gap-6`}
+      >
+        {/* 1. 커피 후원 카드 영역 */}
         <a
-          href="https://www.buymeacoffee.com/당신의아이디" // 실제 주소로 교체하십시오
+          href="https://www.buymeacoffee.com/당신의아이디"
           target="_blank"
           rel="noopener noreferrer"
           className="group p-8 bg-orange-50/50 dark:bg-orange-950/10 border border-orange-100 dark:border-orange-900/30 rounded-[2.5rem] hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-500 flex flex-col items-center text-center space-y-6"
@@ -114,7 +120,7 @@ export default function DonatePage() {
 
         {/* 2. 페이팔 후원 카드 영역 */}
         <a
-          href="https://paypal.me/당신의아이디" // 실제 주소로 교체하십시오
+          href="https://paypal.me/당신의아이디"
           target="_blank"
           rel="noopener noreferrer"
           className="group p-8 bg-indigo-50/50 dark:bg-indigo-950/10 border border-indigo-100 dark:border-indigo-900/30 rounded-[2.5rem] hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-500 flex flex-col items-center text-center space-y-6"
@@ -130,33 +136,35 @@ export default function DonatePage() {
               Global secure payment
             </p>
           </div>
-          <div className="w-full py-4 bg-indigo-600 text-white font-bold rounded-2xl group-hover:bg-indigo-700 transition-colors">
+          <div className="max-w-full py-4 bg-indigo-600 text-white font-bold rounded-2xl group-hover:bg-indigo-700 transition-colors w-full">
             Support Now →
           </div>
         </a>
 
-        {/* 3. 토스 후원 카드 (한국인 전용) 영역 */}
-        <a
-          href="https://toss.me/당신의아이디" // 실제 주소로 교체하십시오
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group p-8 bg-blue-50/50 dark:bg-blue-950/10 border border-blue-100 dark:border-blue-900/30 rounded-[2.5rem] hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 flex flex-col items-center text-center space-y-6"
-        >
-          <div className="p-5 bg-blue-600 text-white rounded-3xl shadow-xl group-hover:scale-110 transition-transform duration-500">
-            <Heart size={40} />
-          </div>
-          <div className="space-y-2">
-            <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-100">
-              {currentLang === "ko" ? "토스 기부하기" : "Toss Payment"}
-            </h3>
-            <p className="text-sm text-blue-700/60 dark:text-blue-400/60 font-medium">
-              Simple Korean payment
-            </p>
-          </div>
-          <div className="w-full py-4 bg-blue-600 text-white font-bold rounded-2xl group-hover:bg-blue-700 transition-colors">
-            Support Now →
-          </div>
-        </a>
+        {/* 📍 3. 토스 후원 카드 (조건부 노출 및 가변 레이아웃) 영역 */}
+        {showToss && (
+          <a
+            href="https://toss.me/당신의아이디"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group p-8 bg-blue-50/50 dark:bg-blue-950/10 border border-blue-100 dark:border-blue-900/30 rounded-[2.5rem] hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-500 flex flex-col items-center text-center space-y-6 animate-in fade-in zoom-in-95"
+          >
+            <div className="p-5 bg-blue-600 text-white rounded-3xl shadow-xl group-hover:scale-110 transition-transform duration-500">
+              <Heart size={40} />
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-100">
+                {t.toss}
+              </h3>
+              <p className="text-sm text-blue-700/60 dark:text-blue-400/60 font-medium">
+                Simple Korean payment
+              </p>
+            </div>
+            <div className="w-full py-4 bg-blue-600 text-white font-bold rounded-2xl group-hover:bg-blue-700 transition-colors">
+              Support Now →
+            </div>
+          </a>
+        )}
       </div>
 
       {/* 하단 격려 문구 영역 */}
