@@ -15,23 +15,21 @@ import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
 
 export default function ImageConverter() {
   const { lang } = useParams();
+
+  // 현재 언어 및 사전 데이터 설정 영역
   const currentLang = (
     lang && DICTIONARY[lang] ? lang : DEFAULT_LANG
   ) as keyof typeof DICTIONARY;
   const t = DICTIONARY[currentLang];
 
-  {
-    /* 상태 관리 영역 */
-  }
+  // 이미지 상태 관리 변수 영역
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [targetFormat, setTargetFormat] = useState("image/jpeg");
   const [isConverting, setIsConverting] = useState(false);
   const [worker, setWorker] = useState<Worker | null>(null);
 
-  {
-    /* Web Worker 초기화 영역 */
-  }
+  // Web Worker 초기화 및 백그라운드 연산 설정 영역
   useEffect(() => {
     const workerCode = `
       self.onmessage = async (e) => {
@@ -51,9 +49,7 @@ export default function ImageConverter() {
     return () => newWorker.terminate();
   }, []);
 
-  {
-    /* 파일 드롭 핸들러 영역 */
-  }
+  // 드롭존 파일 수락 핸들러 영역
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
     if (file) {
@@ -62,24 +58,21 @@ export default function ImageConverter() {
     }
   }, []);
 
+  // react-dropzone 설정 및 훅 영역
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: { "image/*": [] },
     multiple: false,
   });
 
-  {
-    /* 파일 초기화 함수 영역 */
-  }
+  // 선택 파일 초기화 및 미리보기 제거 영역
   const resetFile = (e: React.MouseEvent) => {
     e.stopPropagation();
     setSelectedFile(null);
     setPreviewUrl(null);
   };
 
-  {
-    /* Web Worker 기반 이미지 변환 실행 영역 */
-  }
+  // Web Worker 기반 이미지 변환 및 다운로드 실행 영역
   const convertImage = async () => {
     if (!selectedFile || !worker) return;
     setIsConverting(true);
@@ -105,20 +98,18 @@ export default function ImageConverter() {
 
   return (
     <div className="max-w-5xl mx-auto space-y-8 animate-in fade-in duration-500">
-      {/* 헤더 섹션 영역 */}
+      {/* 헤더 섹션: 사전 데이터 기반 제목 및 설명 출력 영역 */}
       <div className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
           <ImageIcon className="text-blue-600" /> {t.sideMenu.img}
         </h1>
         <p className="text-slate-500 dark:text-slate-400 font-medium">
-          {currentLang === "ko"
-            ? "MacGyver-Tool의 기술로 빠르고 안전하게 변환하세요."
-            : "Fast and safe conversion with MacGyver-Tool technology."}
+          {t.img.desc}
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* 드롭존 업로드 영역 */}
+        {/* 드롭존 영역: 이미지 업로드 및 미리보기 인터페이스 영역 */}
         <div
           {...getRootProps()}
           className={`relative p-8 rounded-[2.5rem] border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center min-h-100
@@ -151,25 +142,19 @@ export default function ImageConverter() {
               </div>
               <div className="space-y-1">
                 <p className="text-xl font-black text-slate-700 dark:text-slate-200">
-                  {currentLang === "ko"
-                    ? "파일을 여기에 놓아주세요"
-                    : "Drop your file here"}
+                  {t.img.drop}
                 </p>
-                <p className="text-slate-400 font-medium">
-                  {currentLang === "ko"
-                    ? "또는 클릭하여 탐색기 열기"
-                    : "or click to browse files"}
-                </p>
+                <p className="text-slate-400 font-medium">{t.img.click}</p>
               </div>
             </div>
           )}
         </div>
 
-        {/* 설정 및 실행 영역 */}
+        {/* 설정 섹션: 타겟 포맷 선택 및 변환 실행 영역 */}
         <div className="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-xl flex flex-col justify-between">
           <div className="space-y-6">
             <label className="text-sm font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
-              <FileType size={16} /> Target Format
+              <FileType size={16} /> {t.img.format}
             </label>
             <div className="grid grid-cols-2 gap-3">
               {["image/jpeg", "image/png", "image/webp"].map((format) => (
@@ -198,13 +183,8 @@ export default function ImageConverter() {
             ) : (
               <Download />
             )}
-            {isConverting
-              ? currentLang === "ko"
-                ? "처리 중..."
-                : "Processing..."
-              : currentLang === "ko"
-                ? "변환 및 다운로드"
-                : "Convert & Download"}
+            {/* 진행 상태에 따른 다국어 텍스트 출력 영역 */}
+            {isConverting ? t.img.processing : t.img.convBtn}
           </button>
         </div>
       </div>

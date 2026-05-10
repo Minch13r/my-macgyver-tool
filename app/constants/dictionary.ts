@@ -1,6 +1,5 @@
 // src/constants/dictionary.ts
 
-// 다국어 언어팩의 구조적 통일성을 규격화하는 타입 정의 영역
 export interface LanguagePack {
   title: string;
   theme: string;
@@ -21,6 +20,11 @@ export interface LanguagePack {
   img: {
     drag: string;
     format: string;
+    desc: string;
+    drop: string;
+    click: string;
+    processing: string;
+    convBtn: string;
   };
   counter: {
     placeholder: string;
@@ -37,12 +41,9 @@ export interface LanguagePack {
   };
 }
 
-// 기본 언어 설정 영역
 export const DEFAULT_LANG = "en";
 
-// 국가별 다국어 사전 리소스 관리 저장소 영역
 export const DICTIONARY: Record<string, LanguagePack> = {
-  // 영문(English) 사전 리소스 정의 영역
   en: {
     title: "MacGyver-Tool",
     theme: "Theme",
@@ -56,21 +57,28 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     paypal: "Support with PayPal",
     adFree: "Enter Ad-Free Code",
     adActive: "Ad-Free Mode Active",
-    desc: "Free online tools for image conversion, word count, and secure encryption. \nYour everyday digital Swiss knife - support our development with a coffee!",
+    desc: "Free online tools for image conversion...",
     copy: "Copy",
     download: "Download",
-    img: { drag: "Click or Drag Image Here", format: "Target Format" },
+    img: {
+      drag: "Click or Drag Image Here",
+      format: "Target Format",
+      desc: "Fast and safe conversion with MacGyver-Tool technology.",
+      drop: "Drop your file here",
+      click: "or click to browse files",
+      processing: "Processing...",
+      convBtn: "Convert & Download",
+    },
     counter: { placeholder: "Type here...", char: "Characters", byte: "Bytes" },
     bcrypt: {
-      pass: "Password (Plain)",
-      hash: "Hash Value",
+      pass: "Password",
+      hash: "Hash",
       gen: "GENERATE HASH",
       verify: "VERIFY",
       match: "MATCHED ✅",
       mismatch: "MISMATCHED ❌",
     },
   },
-  // 국문(Korean) 사전 리소스 정의 영역
   ko: {
     title: "MacGyver-Tool",
     theme: "테마",
@@ -85,12 +93,17 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     paypal: "페이팔로 후원하기",
     adFree: "광고 제거 코드 입력",
     adActive: "광고 없는 모드 활성화 중",
-    desc: "이미지 변환, 글자수 세기, 암호화까지 - \n일상의 번거로움을 해결해 주는 평생 무료 만능 도구함. \n개발자에게 따뜻한 커피 한 잔을 후원해 주세요!",
+    desc: "이미지 변환, 글자수 세기, 암호화까지 - ...",
     copy: "복사",
     download: "다운로드",
     img: {
       drag: "이미지를 클릭하거나 이곳에 드래그하세요",
       format: "변환 포맷",
+      desc: "MacGyver-Tool의 기술로 빠르고 안전하게 변환하세요.",
+      drop: "파일을 여기에 놓아주세요",
+      click: "또는 클릭하여 탐색기 열기",
+      processing: "처리 중...",
+      convBtn: "변환 및 다운로드",
     },
     counter: {
       placeholder: "내용을 입력해 주세요...",
@@ -98,7 +111,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       byte: "바이트",
     },
     bcrypt: {
-      pass: "비밀번호 (평문)",
+      pass: "비밀번호",
       hash: "해시값",
       gen: "해시 생성",
       verify: "일치 검증",
@@ -106,7 +119,6 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       mismatch: "일치하지 않습니다 ❌",
     },
   },
-  // 일문(Japanese) 사전 리소스 정의 영역
   ja: {
     title: "MacGyver-Tool",
     theme: "テーマ",
@@ -114,18 +126,23 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       img: "画像変換",
       count: "文字数カウント",
       sha: "SHA暗号化",
-      bcrypt: "Bcrypt暗号化",
+      bcrypt: "Bcrypt暗호화",
     },
     donate: "コーヒーを支援する",
     paypal: "PayPalで支援する",
     adFree: "広告除去コード入力",
     adActive: "広告なしモード有効",
-    desc: "画像変換、文字数カウント、暗号化まで —\n日常のわずらわしさを解決, 永久無料の万能ツールボックス。\n開発者に温かいコーヒーを一杯ご馳走してください！",
+    desc: "画像変換、文字数カウント、暗号화까지 — ...",
     copy: "コピー",
     download: "ダウンロード",
     img: {
       drag: "画像をクリックまたはドラッグしてください",
       format: "変換形式",
+      desc: "MacGyver-Toolの技術で高速かつ安全に変換します。",
+      drop: "ここにファイルをドロップしてください",
+      click: "またはクリックしてファイルを参照",
+      processing: "処理中...",
+      convBtn: "変換してダウンロード",
     },
     counter: {
       placeholder: "ここに入力してください...",
@@ -133,7 +150,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       byte: "バイト",
     },
     bcrypt: {
-      pass: "パスワード (平文)",
+      pass: "パスワード",
       hash: "ハッシュ値",
       gen: "ハッシュ生成",
       verify: "一致検証",
@@ -141,7 +158,6 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       mismatch: "一致していません ❌",
     },
   },
-  // 불문(French) 사전 리소스 정의 영역
   fr: {
     title: "MacGyver-Tool",
     theme: "Mode",
@@ -155,25 +171,32 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     paypal: "Soutenir avec PayPal",
     adFree: "Entrer le code sans publicité",
     adActive: "Mode sans publicité actif",
-    desc: "Outils en ligne gratuits pour la conversion d'images, \nle comptage de mots et le cryptage. \nVotre couteau suisse numérique quotidien - offrez-moi un café !",
+    desc: "Outils en ligne gratuits...",
     copy: "Copier",
     download: "Télécharger",
-    img: { drag: "Cliquez ou glissez l'image ici", format: "Format cible" },
+    img: {
+      drag: "Cliquez ou glissez l'image ici",
+      format: "Format cible",
+      desc: "Conversion rapide et sûre avec la technologie MacGyver-Tool.",
+      drop: "Déposez votre fichier ici",
+      click: "ou cliquez pour parcourir les fichiers",
+      processing: "Traitement...",
+      convBtn: "Convertir et Télécharger",
+    },
     counter: {
       placeholder: "Écrivez ici...",
       char: "Caractères",
       byte: "Octets",
     },
     bcrypt: {
-      pass: "Mot de passe (Clair)",
-      hash: "Valeur de hachage",
+      pass: "Mot de passe",
+      hash: "Valeur",
       gen: "Hacher",
       verify: "Vérifier",
       match: "Correspondance ✅",
       mismatch: "Non-correspondance ❌",
     },
   },
-  // 서문(Spanish) 사전 리소스 정의 영역
   es: {
     title: "MacGyver-Tool",
     theme: "Tema",
@@ -187,17 +210,25 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     paypal: "Apoya con PayPal",
     adFree: "Ingresar código sin publicidad",
     adActive: "Modo sin anuncios activo",
-    desc: "Herramientas gratuitas para convertir imágenes, \ncontar palabras y cifrado seguro. \nTu navaja suiza digital para el día a día. ¡Invítame a un café!",
+    desc: "Herramientas gratuitas para convertir imágenes...",
     copy: "Copiar",
     download: "Descargar",
-    img: { drag: "Haz clic o arrastra la imagen aquí", format: "Formato" },
+    img: {
+      drag: "Haz clic o arrastra la imagen aquí",
+      format: "Formato",
+      desc: "Conversión rápida y segura con la tecnología MacGyver-Tool.",
+      drop: "Suelta tu archivo aquí",
+      click: "o haz clic para buscar archivos",
+      processing: "Procesando...",
+      convBtn: "Convertir y Descargar",
+    },
     counter: {
       placeholder: "Escribe aquí...",
       char: "Caracteres",
       byte: "Bytes",
     },
     bcrypt: {
-      pass: "Contraseña (Texto plano)",
+      pass: "Contraseña",
       hash: "Valor Hash",
       gen: "Generar Hash",
       verify: "Verificar",
