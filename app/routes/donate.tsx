@@ -6,9 +6,6 @@ import { SupportCard } from "~/components/donate/SupportCard";
 import { useDonateContent } from "~/hooks/donate/useDonateContent";
 
 export default function DonatePage() {
-  {
-    /* 커스텀 훅에서 필요한 데이터 추출 영역 */
-  }
   const { currentLang, activeContent, dictionary } = useDonateContent();
 
   const isTossActive = false;
@@ -16,7 +13,7 @@ export default function DonatePage() {
 
   return (
     <div className="max-w-7xl mx-auto space-y-12 animate-in fade-in slide-in-from-bottom-6 duration-700">
-      {/* 안내 섹션 영역 */}
+      {/* 상단 안내 섹션 영역 */}
       <div className="relative p-10 bg-white/70 dark:bg-slate-900/40 backdrop-blur-xl rounded-[3rem] border border-white/20 dark:border-slate-800 shadow-2xl overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[100px] rounded-full" />
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
@@ -48,39 +45,44 @@ export default function DonatePage() {
         </div>
       </div>
 
-      {/* 후원 카드 목록 영역 */}
+      {/* 후원 카드 목록 배치 영역 */}
       <div
         className={`grid grid-cols-1 ${showToss ? "md:grid-cols-3" : "md:grid-cols-2"} gap-6`}
       >
+        {/* 1. Ko-fi 카드 (해외용) 영역 */}
         <SupportCard
-          href="https://www.buymeacoffee.com/your-id"
+          href="https://ko-fi.com/민영님아이디"
           icon={<Coffee size={40} />}
-          title={dictionary.donate}
-          desc={activeContent.coffeeDesc}
+          title="Ko-fi"
+          desc={activeContent.kofiDesc}
           btnText={activeContent.supportNow}
-          bgColor="bg-orange-50/50 dark:bg-orange-950/10 border-orange-100 dark:border-orange-900/30 text-orange-900 dark:text-orange-100"
-          iconColor="bg-orange-500"
-          hoverColor="hover:shadow-2xl hover:shadow-orange-500/20"
+          bgColor="bg-rose-50/50 dark:bg-rose-950/10 border-rose-100 dark:border-rose-900/30 text-rose-900 dark:text-rose-100"
+          iconColor="bg-rose-500 hover:bg-rose-600"
+          hoverColor="hover:shadow-2xl hover:shadow-rose-500/20"
         />
+
+        {/* 2. PayPal 카드 (해외용) 영역 */}
         <SupportCard
-          href="https://paypal.me/your-id"
+          href="https://paypal.me/민영님아이디"
           icon={<CreditCard size={40} />}
           title={dictionary.paypal || "PayPal"}
           desc={activeContent.paypalDesc}
           btnText={activeContent.supportNow}
           bgColor="bg-indigo-50/50 dark:bg-indigo-950/10 border-indigo-100 dark:border-indigo-900/30 text-indigo-900 dark:text-indigo-100"
-          iconColor="bg-indigo-600"
+          iconColor="bg-indigo-600 hover:bg-indigo-700"
           hoverColor="hover:shadow-2xl hover:shadow-indigo-500/20"
         />
+
+        {/* 3. Toss 카드 (한국용) 영역 */}
         {showToss && (
           <SupportCard
-            href="https://toss.me/your-id"
+            href="https://toss.me/민영님아이디"
             title={dictionary.toss || "Toss"}
             icon={<Heart size={40} />}
             desc={activeContent.tossDesc}
             btnText={activeContent.supportNow}
             bgColor="bg-blue-50/50 dark:bg-blue-950/10 border-blue-100 dark:border-blue-900/30 text-blue-900 dark:text-blue-100"
-            iconColor="bg-blue-600"
+            iconColor="bg-blue-600 hover:bg-blue-700"
             hoverColor="hover:shadow-2xl hover:shadow-blue-500/20"
             isToss
           />

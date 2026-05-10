@@ -81,7 +81,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       bcrypt: "Bcyrpt 암호화",
     },
     donate: "커피 한 잔 후원하기",
-    toss: "토스 기부하기",
+    toss: "토스 익명 송금하기",
     paypal: "페이팔로 후원하기",
     adFree: "광고 제거 코드 입력",
     adActive: "광고 없는 모드 활성화 중",
