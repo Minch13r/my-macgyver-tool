@@ -34,6 +34,7 @@ export interface LanguagePack {
     base64: string;
     zipBtn: string;
     clear: string;
+    favicon: string;
   };
   counter: {
     placeholder: string;
@@ -52,7 +53,7 @@ export interface LanguagePack {
 
 export const DEFAULT_LANG = "en";
 
-{/* 각 언어별 사전 데이터 정의 영역 */}
+{/* 각 국가별 SEO 최적화 문구를 포함한 사전 데이터 정의 영역 */}
 export const DICTIONARY: Record<string, LanguagePack> = {
   en: {
     title: "MacGyver-Tool",
@@ -68,7 +69,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     img: {
       drag: "Click or Drag Image Here",
       format: "Target Format",
-      desc: "Professional tool for resizing, compression, and batch conversion.",
+      desc: "Free professional online Favicon generator and Image converter. \nEasily create website icons, resize, compress, and convert images (PNG, JPG, WebP) in bulk without losing quality. \nYour all-in-one digital utility kit.",
       drop: "Drop your files here",
       click: "or click to browse files",
       processing: "Processing...",
@@ -80,7 +81,8 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       keepRatio: "Keep Aspect Ratio",
       base64: "Extract Base64",
       zipBtn: "Batch Download as ZIP",
-      clear: "Clear List"
+      clear: "Clear List",
+      favicon: "Generate Favicon (32x32)"
     },
     counter: { placeholder: "Type here...", char: "Characters", byte: "Bytes" },
     bcrypt: { pass: "Password", hash: "Hash", gen: "GENERATE HASH", verify: "VERIFY", match: "MATCHED ✅", mismatch: "MISMATCHED ❌" },
@@ -100,7 +102,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     img: {
       drag: "이미지를 클릭하거나 이곳에 드래그하세요",
       format: "변환 포맷",
-      desc: "리사이징, 압축, 일괄 변환까지 가능한 전문가용 도구입니다.",
+      desc: "전문가용 무료 온라인 파비콘 생성기 및 이미지 변환기. \n화질 저하 없이 웹사이트 아이콘 제작, 크기 조절, 이미지 압축(PNG, JPG, WebP) 및 일괄 변환을 간편하게 처리하세요. \n당신을 위한 디지털 만능 도구함.",
       drop: "파일들을 여기에 놓아주세요",
       click: "또는 클릭하여 탐색기 열기",
       processing: "변환 중...",
@@ -112,7 +114,8 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       keepRatio: "비율 유지",
       base64: "Base64 코드 추출",
       zipBtn: "ZIP으로 일괄 다운로드",
-      clear: "목록 비우기"
+      clear: "목록 비우기",
+      favicon: "파비콘 생성 (32x32)"
     },
     counter: { placeholder: "내용을 입력해 주세요...", char: "글자수", byte: "바이트" },
     bcrypt: { pass: "비밀번호", hash: "해시값", gen: "해시 생성", verify: "일치 검증", match: "일치합니다 ✅", mismatch: "일치하지 않습니다 ❌" },
@@ -131,7 +134,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     img: {
       drag: "画像をクリックまたはドラッグしてください",
       format: "変換形式",
-      desc: "リサイズ、圧縮、一括変換が可能なプロ仕様のツールです。",
+      desc: "プロ仕様の無料オンライン・ファビコン作成および画像変換ツール。\n画質を落とさずにウェブサイトのアイコン作成、サイズ変更、画像圧縮（PNG, JPG, WebP）および一括変換を簡単に できます。\nあなたのためのデジタル万能ツールボックス。",
       drop: "ここにファイルをドロップしてください",
       click: "またはクリックしてファイルを参照",
       processing: "処理中...",
@@ -143,9 +146,10 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       keepRatio: "比率を維持",
       base64: "Base64抽出",
       zipBtn: "ZIP一括ダウンロード",
-      clear: "リストをクリア"
+      clear: "リストをクリア",
+      favicon: "ファビコン生成 (32x32)"
     },
-    counter: { placeholder: "ここに入力してください...", char: "文字数", byte: "バイト" },
+    counter: { placeholder: "ここに入력してください...", char: "文字数", byte: "バイト" },
     bcrypt: { pass: "パスワード", hash: "ハッシュ値", gen: "ハッシュ生成", verify: "一致検証", match: "一致しています ✅", mismatch: "一致していません ❌" },
   },
   fr: {
@@ -162,7 +166,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     img: {
       drag: "Cliquez ou glissez l'image ici",
       format: "Format cible",
-      desc: "Outil professionnel pour le redimensionnement, la compression et la conversion par lots.",
+      desc: "Générateur de favicon et convertisseur d'images professionnel gratuit en ligne. \nCréez facilement des icônes de site Web, redimensionnez, compressez et convertissez des images (PNG, JPG, WebP) par lots sans perte de qualité. \nVotre boîte à outils numérique tout-en-un.",
       drop: "Déposez vos fichiers ici",
       click: "ou cliquez pour parcourir les fichiers",
       processing: "Traitement...",
@@ -174,7 +178,8 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       keepRatio: "Garder le ratio",
       base64: "Extraire Base64",
       zipBtn: "Télécharger tout en ZIP",
-      clear: "Vider la liste"
+      clear: "Vider la liste",
+      favicon: "Générer un Favicon (32x32)"
     },
     counter: { placeholder: "Écrivez ici...", char: "Caractères", byte: "Octets" },
     bcrypt: { pass: "Mot de passe", hash: "Valeur", gen: "Hacher", verify: "Vérifier", match: "Correspondance ✅", mismatch: "Non-correspondance ❌" },
@@ -192,8 +197,8 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     download: "Descargar",
     img: {
       drag: "Haz clic o arrastra la imagen aquí",
-      format: "Formato",
-      desc: "Herramienta profesional para redimensionar, comprimir y convertir por lotes.",
+      format: "Format",
+      desc: "Generador de favicons y convertidor de imágenes profesional gratuito en línea. \nCree fácilmente iconos de sitios web, redimensione, comprima y convierta imágenes (PNG, JPG, WebP) por lotes sin pérdida de calidad. \nSu kit de herramientas digitales todo en uno.",
       drop: "Suelta tus archivos aquí",
       click: "o haz clic para buscar archivos",
       processing: "Procesando...",
@@ -205,7 +210,8 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       keepRatio: "Mantener proporción",
       base64: "Extraer Base64",
       zipBtn: "Descargar todo en ZIP",
-      clear: "Limpiar lista"
+      clear: "Limpiar lista",
+      favicon: "Generar Favicon (32x32)"
     },
     counter: { placeholder: "Escribe aquí...", char: "Caracteres", byte: "Bytes" },
     bcrypt: { pass: "Contraseña", hash: "Valor Hash", gen: "Generar Hash", verify: "Verificar", match: "Coincide ✅", mismatch: "No coincide ❌" },

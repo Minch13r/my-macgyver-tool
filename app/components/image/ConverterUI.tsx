@@ -1,25 +1,31 @@
 // app/components/image/ConverterUI.tsx
-import {
-  Upload,
-  FileImage,
-  FileType,
-  Settings,
-  Maximize,
-  Check,
-  Copy,
-} from "lucide-react";
+import { Upload, FileType, Check, Copy, Sparkles } from "lucide-react";
 import { useState } from "react";
 
-// 드롭존 컴포넌트 영역
+/**
+ * 1. 드롭존 컴포넌트 영역
+ * 파일 드래그 앤 드롭 및 클릭 업로드 처리 부품
+ */
+interface DropzoneProps {
+  getRootProps: any;
+  getInputProps: any;
+  isDragActive: boolean;
+  t: any;
+}
+
 export const ImageDropzone = ({
   getRootProps,
   getInputProps,
   isDragActive,
   t,
-}: any) => (
+}: DropzoneProps) => (
   <div
     {...getRootProps()}
-    className={`relative p-10 rounded-[2.5rem] border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center min-h-75 ${isDragActive ? "border-blue-500 bg-blue-50/50" : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"}`}
+    className={`relative p-10 rounded-[2.5rem] border-2 border-dashed transition-all cursor-pointer flex flex-col items-center justify-center min-h-75 ${
+      isDragActive
+        ? "border-blue-500 bg-blue-50/50"
+        : "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900"
+    }`}
   >
     <input {...getInputProps()} />
     <Upload size={48} className="text-blue-500 mb-4" />
@@ -28,8 +34,15 @@ export const ImageDropzone = ({
   </div>
 );
 
-// 프리뷰 리스트 컴포넌트 영역
-export const PreviewList = ({ previews }: { previews: any[] }) => (
+/**
+ * 2. 프리뷰 리스트 컴포넌트 영역
+ * 업로드된 이미지들의 미리보기 목록 출력 부품
+ */
+export const PreviewList = ({
+  previews,
+}: {
+  previews: { url: string; name: string }[];
+}) => (
   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
     {previews.map((p, i) => (
       <div
@@ -47,7 +60,29 @@ export const PreviewList = ({ previews }: { previews: any[] }) => (
   </div>
 );
 
-// Base64 결과창 컴포넌트 영역
+/**
+ * 3. 파비콘 프리셋 버튼 컴포넌트 영역
+ * 클릭 시 32x32 ICO 설정을 자동 적용하는 부품
+ */
+export const FaviconButton = ({
+  onClick,
+  label,
+}: {
+  onClick: () => void;
+  label: string;
+}) => (
+  <button
+    onClick={onClick}
+    className="w-full py-3 px-4 bg-blue-50 dark:bg-blue-900/20 text-blue-600 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 hover:bg-blue-100 transition-all border border-blue-100 dark:border-blue-800"
+  >
+    <Sparkles size={14} /> {label}
+  </button>
+);
+
+/**
+ * 4. Base64 결과창 컴포넌트 영역
+ * 변환된 이미지의 Base64 코드를 복사하는 부품
+ */
 export const Base64Output = ({
   result,
   label,
@@ -56,11 +91,14 @@ export const Base64Output = ({
   label: string;
 }) => {
   const [isCopied, setIsCopied] = useState(false);
+
   const handleCopy = () => {
+    if (!result) return;
     navigator.clipboard.writeText(result);
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
   };
+
   return (
     <div className="p-6 bg-slate-50 dark:bg-slate-900/50 rounded-[2rem] border border-slate-200 dark:border-slate-800 space-y-3">
       <div className="flex justify-between items-center">
@@ -80,7 +118,7 @@ export const Base64Output = ({
       </div>
       <textarea
         readOnly
-        value={result.substring(0, 100) + "..."}
+        value={result ? result.substring(0, 100) + "..." : ""}
         className="w-full h-20 bg-transparent text-[10px] font-mono text-slate-500 resize-none outline-none"
       />
     </div>

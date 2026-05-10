@@ -52,6 +52,14 @@ export function useImageConverter() {
     };
   }, []);
 
+  // 📍 파비콘 설정 프리셋 함수 영역
+  const setFaviconPreset = useCallback(() => {
+    setTargetFormat("image/x-icon");
+    setWidth(32);
+    setHeight(32);
+    setKeepRatio(true);
+  }, []);
+
   // 파일 업로드 및 미리보기 URL 생성 처리 영역
   const onDrop = useCallback((acceptedFiles: File[]) => {
     setFiles((prev) => [...prev, ...acceptedFiles]);
@@ -79,7 +87,6 @@ export function useImageConverter() {
 
     for (const file of files) {
       try {
-        // 이미지 비트맵 생성 및 에러 가드 영역
         const imageBitmap = await createImageBitmap(file);
         
         let targetWidth = width || imageBitmap.width;
@@ -102,7 +109,7 @@ export function useImageConverter() {
             console.error(`Conversion error [${originalName}]:`, error);
             processedCount++;
           } else {
-            const extension = targetFormat.split("/")[1];
+            const extension = targetFormat === "image/x-icon" ? "ico" : targetFormat.split("/")[1];
             const newName = `${originalName.split(".")[0]}.${extension}`;
 
             if (isZip) {
@@ -122,7 +129,6 @@ export function useImageConverter() {
             processedCount++;
           }
 
-          // 모든 파일 처리 완료 확인 영역
           if (processedCount === files.length) {
             if (isZip && Object.keys(zip.files).length > 0) {
               zip.generateAsync({ type: "blob" }).then((content) => {
@@ -149,6 +155,6 @@ export function useImageConverter() {
     t, currentLang, files, previews, targetFormat, setTargetFormat,
     quality, setQuality, width, setWidth, height, setHeight,
     keepRatio, setKeepRatio, isConverting, base64Result,
-    onDrop, clearAll, processImages
+    onDrop, clearAll, processImages, setFaviconPreset
   };
 }
