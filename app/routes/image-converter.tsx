@@ -8,6 +8,21 @@ import { useImageConverter } from "~/hooks/image/useImageConverter";
 import { 
   ImageDropzone, PreviewList, Base64Output, FaviconButton 
 } from "~/components/image/ConverterUI";
+import type { MetaFunction } from "react-router";
+import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
+
+// 메타 데이터
+export const meta: MetaFunction = ({ params }) => {
+  const lang = params.lang || DEFAULT_LANG;
+  const t = DICTIONARY[lang];
+
+  return [
+    { title: `${t.sideMenu.img} | ${t.title}` }, // 브라우저 탭 제목 영역
+    { name: "description", content: t.img.desc }, // 검색 결과 요약 문구 영역
+    { property: "og:title", content: t.sideMenu.img }, // SNS 공유 시 제목 영역
+    { property: "og:description", content: t.img.desc }, // SNS 공유 시 설명 영역
+  ];
+};
 
 export default function ImageConverter() {
   // 커스텀 훅을 통한 이미지 변환 로직 및 상태 주입 영역
