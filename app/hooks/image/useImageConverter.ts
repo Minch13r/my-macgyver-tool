@@ -4,6 +4,15 @@ import { useParams } from "react-router";
 import JSZip from "jszip";
 import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
 
+// 이미지 상세 정보 인터페이스 정의 영역
+export interface ImageInfo {
+  url: string;
+  name: string;
+  size: number;
+  width: number;
+  height: number;
+}
+
 export function useImageConverter() {
   const { lang } = useParams();
   const currentLang = (lang && DICTIONARY[lang] ? lang : DEFAULT_LANG) as keyof typeof DICTIONARY;
@@ -11,7 +20,7 @@ export function useImageConverter() {
 
   // 상태 관리 변수 정의 영역
   const [files, setFiles] = useState<File[]>([]);
-  const [previews, setPreviews] = useState<{ url: string; name: string }[]>([]);
+  const [previews, setPreviews] = useState<ImageInfo[]>([]);
   const [targetFormat, setTargetFormat] = useState("image/jpeg");
   const [quality, setQuality] = useState(0.8);
   const [width, setWidth] = useState(0);
@@ -44,7 +53,6 @@ export function useImageConverter() {
     const newWorker = new Worker(workerUrl);
     setWorker(newWorker);
 
-    // 컴포넌트 언마운트 시 메모리 및 워커 해제 영역
     return () => {
       newWorker.terminate();
       URL.revokeObjectURL(workerUrl);
@@ -52,7 +60,7 @@ export function useImageConverter() {
     };
   }, []);
 
-  // 📍 파비콘 설정 프리셋 함수 영역
+  // 파비콘 설정 프리셋 함수 영역
   const setFaviconPreset = useCallback(() => {
     setTargetFormat("image/x-icon");
     setWidth(32);
@@ -60,19 +68,32 @@ export function useImageConverter() {
     setKeepRatio(true);
   }, []);
 
-  // 파일 업로드 및 미리보기 URL 생성 처리 영역
-  const onDrop = useCallback((acceptedFiles: File[]) => {
+  // 비동기 이미지 메타데이터 추출 및 업로드 처리 영역
+  const onDrop = useCallback(async (acceptedFiles: File[]) => {
     setFiles((prev) => [...prev, ...acceptedFiles]);
-    const newPreviews = acceptedFiles.map((file) => ({
-      url: URL.createObjectURL(file),
-      name: file.name,
-    }));
-    setPreviews((prev) => [...prev, ...newPreviews]);
+
+    // 각 파일의 해상도 및 정보 추출 영역
+    const newInfos = await Promise.all(
+      acceptedFiles.map(async (file) => {
+        const bitmap = await createImageBitmap(file); // 해상도 추출용 비트맵 생성
+        const info: ImageInfo = {
+          url: URL.createObjectURL(file),
+          name: file.name,
+          size: file.size,
+          width: bitmap.width,
+          height: bitmap.height,
+        };
+        bitmap.close(); // 메모리 해제
+        return info;
+      })
+    );
+
+    setPreviews((prev) => [...prev, ...newInfos]);
   }, []);
 
   // 메모리 해제 및 전체 상태 초기화 함수 영역
   const clearAll = useCallback(() => {
-    previews.forEach(p => URL.revokeObjectURL(p.url));
+    previews.forEach((p) => URL.revokeObjectURL(p.url));
     setFiles([]);
     setPreviews([]);
     setBase64Result("");
@@ -97,7 +118,6 @@ export function useImageConverter() {
           else if (height && !width) targetWidth = (imageBitmap.width / imageBitmap.height) * height;
         }
 
-        // 워커 메시지 전송 및 소유권 이전 영역
         worker.postMessage({ 
           imageBitmap, targetFormat, quality, targetWidth, targetHeight, originalName: file.name 
         }, [imageBitmap]);
