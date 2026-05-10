@@ -33,11 +33,10 @@ export function Sidebar({ currentLang, t, menuItems, pathname }: any) {
         </Link>
       </div>
 
-      {/* 📍 메뉴 검색창 영역 */}
+      {/* 메뉴 검색창 영역 */}
       <MenuSearch
         query={searchQuery}
         setQuery={setSearchQuery}
-        placeholder={currentLang === "ko" ? "메뉴 검색..." : "Search tools..."}
       />
 
       <nav className="flex-1 p-4 pt-0 space-y-2 overflow-y-auto">

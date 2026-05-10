@@ -25,12 +25,11 @@ export function MobileMenu({ isOpen, onClose, t, menuItems }: any) {
       <div className="fixed inset-y-0 left-0 w-72 bg-white dark:bg-slate-900 p-6 shadow-2xl animate-in slide-in-from-left duration-300 flex flex-col">
         <div className="text-2xl font-black text-blue-600 mb-6">{t.title}</div>
 
-        {/* 📍 모바일 메뉴 검색창 영역 */}
+        {/* 모바일 메뉴 검색창 영역 */}
         <div className="-mx-4">
           <MenuSearch
             query={searchQuery}
             setQuery={setSearchQuery}
-            placeholder="Search..."
           />
         </div>
 

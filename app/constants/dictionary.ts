@@ -10,6 +10,7 @@ export interface LanguagePack {
     sha: string;
     bcrypt: string;
   };
+  search: string; // 📍 검색창 안내 문구 항목 추가 영역
   donate: string;
   toss?: string;
   paypal?: string;
@@ -53,12 +54,13 @@ export interface LanguagePack {
 
 export const DEFAULT_LANG = "en";
 
-{/* 각 국가별 SEO 최적화 문구를 포함한 사전 데이터 정의 영역 */}
+{/* 각 국가별 사전 데이터 정의 영역 */}
 export const DICTIONARY: Record<string, LanguagePack> = {
   en: {
     title: "MacGyver-Tool",
     theme: "Theme",
     sideMenu: { img: "Image Conv", count: "Counter", sha: "SHA Hash", bcrypt: "Bcrypt Hash" },
+    search: "Search tools...",
     donate: "Support with Coffee",
     paypal: "Support with PayPal",
     adFree: "Enter Ad-Free Code",
@@ -91,6 +93,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     title: "MacGyver-Tool",
     theme: "테마",
     sideMenu: { img: "이미지 변환", count: "글자수 세기", sha: "SHA 암호화", bcrypt: "Bcyrpt 암호화" },
+    search: "도구 검색...",
     donate: "커피 한 잔 후원하기",
     toss: "토스 익명 송금하기",
     paypal: "페이팔로 후원하기",
@@ -124,6 +127,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     title: "MacGyver-Tool",
     theme: "テーマ",
     sideMenu: { img: "画像変換", count: "文字数カウント", sha: "SHA暗号化", bcrypt: "Bcrypt暗号化" },
+    search: "ツールを検索...",
     donate: "コーヒーを支援する",
     paypal: "PayPalで支援する",
     adFree: "広告除去コード入力",
@@ -134,7 +138,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     img: {
       drag: "画像をクリックまたはドラッグしてください",
       format: "変換形式",
-      desc: "プロ仕様の無料オンライン・ファビコン作成および画像変換ツール。\n画質を落とさずにウェブサイトのアイコン作成、サイズ変更、画像圧縮（PNG, JPG, WebP）および一括変換を簡単に できます。\nあなたのためのデジタル万能ツールボックス。",
+      desc: "プロ仕様の無料オンライン・ファビコン作成および画像変換ツール。\n画質を落とさずにウェブサイトのアイコン作成、サイズ変更、画像圧縮（PNG, JPG, WebP）および一括変換を簡単に処理できます。\nあなたのためのデジタル万能ツールボックス。",
       drop: "ここにファイルをドロップしてください",
       click: "またはクリックしてファイルを参照",
       processing: "処理中...",
@@ -149,13 +153,14 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       clear: "リストをクリア",
       favicon: "ファビコン生成 (32x32)"
     },
-    counter: { placeholder: "ここに入력してください...", char: "文字数", byte: "バイト" },
+    counter: { placeholder: "ここに入力してください...", char: "文字数", byte: "バイト" },
     bcrypt: { pass: "パスワード", hash: "ハッシュ値", gen: "ハッシュ生成", verify: "一致検証", match: "一致しています ✅", mismatch: "一致していません ❌" },
   },
   fr: {
     title: "MacGyver-Tool",
     theme: "Mode",
     sideMenu: { img: "Conv Image", count: "Compteur", sha: "SHA Hash", bcrypt: "Bcrypt Hash" },
+    search: "Rechercher des outils...",
     donate: "Soutenir avec un café",
     paypal: "Soutenir avec PayPal",
     adFree: "Entrer le code sans publicité",
@@ -188,6 +193,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     title: "MacGyver-Tool",
     theme: "Tema",
     sideMenu: { img: "Conv Imagen", count: "Contador", sha: "SHA Hash", bcrypt: "Bcrypt Hash" },
+    search: "Buscar herramientas...",
     donate: "Apoya con un café",
     paypal: "Apoya con PayPal",
     adFree: "Ingresar código sin publicidad",
