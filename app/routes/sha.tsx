@@ -7,12 +7,13 @@ import { DonateModal } from "~/components/image/DonateModal";
 import type { MetaFunction } from "react-router";
 import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
 
+// 메타 데이터 정의 영역
 export const meta: MetaFunction = ({ params }) => {
   const lang = params.lang || DEFAULT_LANG;
   const t = DICTIONARY[lang];
   return [
     { title: `${t.sideMenu.sha} | ${t.title}` },
-    { name: "description", content: t.desc }
+    { name: "description", content: t.sha.desc } // 📍 t.desc 대신 sha 전용 설명 사용
   ];
 };
 
@@ -27,12 +28,16 @@ export default function ShaPage() {
         <h1 className="text-4xl font-black tracking-tighter text-slate-900 dark:text-white flex items-center gap-3">
           <ShieldCheck className="text-blue-600 w-10 h-10" /> {t.sideMenu.sha}
         </h1>
-        <p className="text-slate-500 font-medium tracking-tight">강력한 일방향 암호화 알고리즘으로 데이터를 해싱하십시오.</p>
+        {/* 📍 다국어 사전에서 설명 문구 적용 영역 */}
+        <p className="text-slate-500 font-medium tracking-tight">{t.sha.desc}</p>
       </div>
 
       {/* 알고리즘 선택 섹션 영역 */}
       <div className="space-y-4">
-        <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-2">Select Algorithm</label>
+        {/* 📍 다국어 사전에서 라벨 적용 영역 */}
+        <label className="text-[11px] font-black text-slate-400 uppercase tracking-widest ml-2">
+          {t.sha.labelAlgo}
+        </label>
         <AlgoSelector selected={algorithm} onSelect={setAlgorithm} />
       </div>
 
@@ -40,12 +45,15 @@ export default function ShaPage() {
       <div className="space-y-4">
         <div className="flex items-center gap-2 text-slate-400 ml-2">
           <MessageSquareText size={14} />
-          <span className="text-[11px] font-black uppercase tracking-widest text-slate-400">Plain Text</span>
+          {/* 📍 다국어 사전에서 라벨 적용 영역 */}
+          <span className="text-[11px] font-black uppercase tracking-widest text-slate-400">
+            {t.sha.labelInput}
+          </span>
         </div>
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="암호화할 내용을 입력하십시오..."
+          placeholder={t.sha.placeholder}
           className="w-full h-40 p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border-2 border-slate-100 dark:border-slate-800 focus:border-blue-500 outline-none text-lg font-medium transition-all shadow-xl resize-none"
         />
       </div>

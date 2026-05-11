@@ -50,6 +50,12 @@ export interface LanguagePack {
     match: string;
     mismatch: string;
   };
+  sha: {
+    desc: string;
+    placeholder: string;
+    labelAlgo: string;
+    labelInput: string;
+  };
   thanksTitle: string;
   thanksMsg: string;
   donateBtn: string;
@@ -92,6 +98,12 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     },
     counter: { placeholder: "Type here...", char: "Characters", byte: "Bytes" },
     bcrypt: { pass: "Password", hash: "Hash", gen: "GENERATE HASH", verify: "VERIFY", match: "MATCHED ✅", mismatch: "MISMATCHED ❌" },
+    sha: {
+      desc: "Hash your data with powerful one-way encryption algorithms.",
+      placeholder: "Enter content to encrypt...",
+      labelAlgo: "Select Algorithm",
+      labelInput: "Plain Text"
+    },
     thanksTitle: "Thank You!",
     thanksMsg: "Thank you for using MacGyver-Tool.\nYour support is a great help to the developer.",
     donateBtn: "Support Now ❤️",
@@ -130,6 +142,12 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     },
     counter: { placeholder: "내용을 입력해 주세요...", char: "글자수", byte: "바이트" },
     bcrypt: { pass: "비밀번호", hash: "해시값", gen: "해시 생성", verify: "일치 검증", match: "일치합니다 ✅", mismatch: "일치하지 않습니다 ❌" },
+    sha: {
+      desc: "강력한 일방향 암호화 알고리즘으로 데이터를 해싱하십시오.",
+      placeholder: "암호화할 내용을 입력하십시오...",
+      labelAlgo: "알고리즘 선택",
+      labelInput: "원문 텍스트"
+    },
     thanksTitle: "감사합니다!",
     thanksMsg: "MacGyver-Tool을 사용해주셔서 감사합니다.\n후원해주시면 개발자에게 큰 도움이 됩니다.",
     donateBtn: "후원하러 가기 ❤️",
@@ -138,7 +156,7 @@ export const DICTIONARY: Record<string, LanguagePack> = {
   ja: {
     title: "MacGyver-Tool",
     theme: "テーマ",
-    sideMenu: { img: "画像変換", count: "文字数カウント", sha: "SHA暗号化", bcrypt: "Bcrypt暗号化" },
+    sideMenu: { img: "画像変換", count: "文字数カウント", sha: "SHA暗호化", bcrypt: "Bcrypt暗호化" },
     search: "ツールを検索...",
     donate: "コーヒーを支援する",
     paypal: "PayPalで支援する",
@@ -167,6 +185,12 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     },
     counter: { placeholder: "ここに入力してください...", char: "文字数", byte: "バイト" },
     bcrypt: { pass: "パスワード", hash: "ハッシュ値", gen: "ハッシュ生成", verify: "一致検証", match: "一致しています ✅", mismatch: "一致していません ❌" },
+    sha: {
+      desc: "強力な一方向暗号化アルゴリズムでデータをハッシュ化します。",
+      placeholder: "暗号化する内容を入力してください...",
+      labelAlgo: "アルゴリズム選択",
+      labelInput: "プレーンテキスト"
+    },
     thanksTitle: "ありがとうございます！",
     thanksMsg: "MacGyver-Toolをご利用いただきありがとうございます。\n皆様の支援が開発の大きな励みになります。",
     donateBtn: "支援する ❤️",
@@ -204,6 +228,12 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     },
     counter: { placeholder: "Écrivez ici...", char: "Caractères", byte: "Octets" },
     bcrypt: { pass: "Mot de passe", hash: "Valeur", gen: "Hacher", verify: "Vérifier", match: "Correspondance ✅", mismatch: "Non-correspondance ❌" },
+    sha: {
+      desc: "Hachez vos données avec de puissants algorithmes de chiffrement unidirectionnels.",
+      placeholder: "Entrez le contenu à chiffrer...",
+      labelAlgo: "Sélectionner l'algorithme",
+      labelInput: "Texte brut"
+    },
     thanksTitle: "Merci !",
     thanksMsg: "Merci d'utiliser MacGyver-Tool.\nVotre soutien est d'une grande aide pour le développeur.",
     donateBtn: "Soutenir ❤️",
@@ -241,6 +271,12 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     },
     counter: { placeholder: "Escribe aquí...", char: "Caracteres", byte: "Bytes" },
     bcrypt: { pass: "Contraseña", hash: "Valor Hash", gen: "Generar Hash", verify: "Verificar", match: "Coincide ✅", mismatch: "No coincide ❌" },
+    sha: {
+      desc: "Hashee sus datos con potentes algoritmos de cifrado unidireccionales.",
+      placeholder: "Ingrese el contenido a cifrar...",
+      labelAlgo: "Seleccionar algoritmo",
+      labelInput: "Texto plano"
+    },
     thanksTitle: "¡Gracias!",
     thanksMsg: "Gracias por usar MacGyver-Tool.\nTu apoyo es de gran ayuda para el desarrollador.",
     donateBtn: "Apoyar ❤️",
