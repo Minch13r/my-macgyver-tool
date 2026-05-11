@@ -12,7 +12,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 // 사전에 정의한 언어 정보를 가져오는 영역
-import { DICTIONARY, DEFAULT_LANG } from "./constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "./constants/i18n";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
