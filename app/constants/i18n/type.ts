@@ -65,4 +65,10 @@ export interface LanguagePack {
   thanksMsg: string;
   donateBtn: string;
   closeBtn: string;
+  notFound: {
+    title: string;
+    desc: string;
+    goHome: string;
+    goBack: string;
+  };
 }

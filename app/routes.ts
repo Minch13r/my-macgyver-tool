@@ -19,4 +19,7 @@ export default [
     // bcrypt
     route("bcrypt", "routes/bcrypt.tsx"),
   ]),
+
+  // 그 외의 파일들
+  route("*", "routes/$.tsx"),
 ] satisfies RouteConfig;
