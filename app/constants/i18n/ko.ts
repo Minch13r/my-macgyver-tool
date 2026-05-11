@@ -56,6 +56,7 @@ export const ko: LanguagePack = {
     securityTipTitle: "보안 팁",
     securityTipDesc:
       "Bcrypt는 레인보우 테이블 공격을 방지하기 위해 각 해시마다 고유한 솔트를 자동으로 생성합니다.",
+    passPlaceholder: "비밀번호 입력...",
   },
   sha: {
     desc: "강력한 일방향 암호화 알고리즘으로 데이터를 해싱하십시오.",

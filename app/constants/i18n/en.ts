@@ -61,6 +61,7 @@ export const en: LanguagePack = {
     securityTipTitle: "Security Tip",
     securityTipDesc:
       "Bcrypt automatically generates a unique salt for each hash to prevent rainbow table attacks.",
+    passPlaceholder: "Enter password...",
   },
 
   // SHA 암호화 도구 문구 영역

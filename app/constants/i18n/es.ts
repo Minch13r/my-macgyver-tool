@@ -61,6 +61,7 @@ export const es: LanguagePack = {
     securityTipTitle: "Consejo de seguridad",
     securityTipDesc:
       "Bcrypt genera automáticamente una sal única para cada hash para evitar ataques de tablas arcoíris.",
+    passPlaceholder: "Ingrese la contraseña...",
   },
 
   // SHA 암호화 도구 문구 영역

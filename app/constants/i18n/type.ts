@@ -53,6 +53,7 @@ export interface LanguagePack {
     costTip: string;
     securityTipTitle: string;
     securityTipDesc: string;
+    passPlaceholder: string;
   };
   sha: {
     desc: string;

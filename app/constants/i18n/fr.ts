@@ -62,6 +62,7 @@ export const fr: LanguagePack = {
     securityTipTitle: "Conseil de sécurité",
     securityTipDesc:
       "Bcrypt génère automatiquement un sel unique pour chaque hachage afin d'empêcher les attaques par table arc-en-ciel.",
+    passPlaceholder: "Entrez le mot de passe...",
   },
 
   // SHA 암호화 도구 문구 영역

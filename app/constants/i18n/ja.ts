@@ -61,6 +61,7 @@ export const ja: LanguagePack = {
     securityTipTitle: "セキュリティチップ",
     securityTipDesc:
       "Bcryptは、レインボーテーブル攻撃を防ぐために、各ハッシュに対して一意のソルトを自動的に生成します。",
+    passPlaceholder: "パスワードを入力...",
   },
 
   // SHA 암호화 도구 문구 영역

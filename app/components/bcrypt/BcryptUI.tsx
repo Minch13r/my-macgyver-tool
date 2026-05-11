@@ -30,7 +30,7 @@ export const BcryptTabs = ({ activeTab, onTabChange, t }: any) => (
       onClick={() => onTabChange("verify")}
       className={`flex-1 py-3 rounded-xl font-black text-sm transition-all ${
         activeTab === "verify"
-          ? "bg-white dark: dark:bg-slate-900 text-indigo-600 shadow-md"
+          ? "bg-white dark:bg-slate-900 text-indigo-600 shadow-md"
           : "text-slate-400"
       }`}
     >
@@ -65,7 +65,7 @@ export const BcryptVerifyForm = ({
         type="text"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="Enter password to verify..."
+        placeholder={t.bcrypt.passPlaceholder || "Enter password to verify..."}
         className="w-full p-6 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-100 dark:border-slate-800 focus:border-indigo-500 outline-none text-lg font-bold shadow-xl"
       />
     </div>
@@ -80,7 +80,7 @@ export const BcryptVerifyForm = ({
       <textarea
         value={hash}
         onChange={(e) => setHash(e.target.value)}
-        placeholder="Paste hash here ($2a$...)"
+        placeholder={t.bcrypt.hashPlaceholder || "Paste hash here ($2a$...)"}
         className="w-full h-32 p-6 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-100 dark:border-slate-800 focus:border-indigo-500 outline-none text-sm font-mono shadow-xl resize-none"
       />
     </div>
@@ -117,9 +117,9 @@ export const BcryptVerifyForm = ({
 
 /**
  * 3. 비용 설정 슬라이더 영역
- * 연산 강도를 조절하는 슬라이더 부품
+ * 연산 강도를 조절하는 슬라이더 부품 (다국어 팁 적용)
  */
-export const CostSlider = ({ value, onChange }: any) => (
+export const CostSlider = ({ value, onChange, t }: any) => (
   <div className="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-xl space-y-6">
     <div className="flex justify-between items-center">
       <div className="flex items-center gap-2 text-indigo-600">
@@ -140,8 +140,9 @@ export const CostSlider = ({ value, onChange }: any) => (
       onChange={(e) => onChange(parseInt(e.target.value))}
       className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-600"
     />
+    {/* 📍 다국어 사전의 costTip 적용 영역 */}
     <p className="text-[10px] text-slate-400 font-medium">
-      * 숫자가 높을수록 보안이 강력해지지만 생성 속도가 느려집니다. (권장: 10-12)
+      {t.bcrypt.costTip}
     </p>
   </div>
 );
@@ -173,7 +174,7 @@ export const BcryptResult = ({
     <div className="p-8 bg-slate-900 rounded-[2.5rem] shadow-2xl space-y-4">
       <div className="flex justify-between items-center text-slate-400">
         <span className="text-[10px] font-black uppercase tracking-[0.2em]">
-          Bcrypt Hash Result
+          {t.bcrypt.hashResultLabel || "Bcrypt Hash Result"}
         </span>
         <button
           onClick={handleCopy}
@@ -187,7 +188,7 @@ export const BcryptResult = ({
         </button>
       </div>
       <div className="font-mono text-sm text-blue-400 break-all leading-relaxed bg-black/30 p-6 rounded-2xl border border-white/5">
-        {hash || "Generate a hash to see it here..."}
+        {hash || t.bcrypt.hashWaiting || "Generate a hash to see it here..."}
       </div>
     </div>
   );
