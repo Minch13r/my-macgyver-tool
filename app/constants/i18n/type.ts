@@ -49,6 +49,10 @@ export interface LanguagePack {
     verify: string;
     match: string;
     mismatch: string;
+    pageDesc: string;
+    costTip: string;
+    securityTipTitle: string;
+    securityTipDesc: string;
   };
   sha: {
     desc: string;

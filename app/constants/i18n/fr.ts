@@ -5,11 +5,11 @@ import type { LanguagePack } from "./type";
 export const fr: LanguagePack = {
   title: "MacGyver-Tool",
   theme: "Mode",
-  sideMenu: { 
-    img: "Conv Image", 
-    count: "Compteur", 
-    sha: "SHA Hash", 
-    bcrypt: "Bcrypt Hash" 
+  sideMenu: {
+    img: "Conv Image",
+    count: "Compteur",
+    sha: "SHA Hash",
+    bcrypt: "Bcrypt Hash",
   },
   search: "Rechercher des outils...",
   donate: "Soutenir avec un café",
@@ -37,24 +37,31 @@ export const fr: LanguagePack = {
     base64: "Extraire Base64",
     zipBtn: "Télécharger tout en ZIP",
     clear: "Vider la liste",
-    favicon: "Générer un Favicon (32x32)"
+    favicon: "Générer un Favicon (32x32)",
   },
 
   // 글자수 세기 도구 문구 영역
-  counter: { 
-    placeholder: "Écrivez ici...", 
-    char: "Caractères", 
-    byte: "Octets" 
+  counter: {
+    placeholder: "Écrivez ici...",
+    char: "Caractères",
+    byte: "Octets",
   },
 
   // Bcrypt 암호화 도구 문구 영역
-  bcrypt: { 
-    pass: "Mot de passe", 
-    hash: "Valeur", 
-    gen: "Hacher", 
-    verify: "Vérifier", 
-    match: "Correspondance ✅", 
-    mismatch: "Non-correspondance ❌" 
+  bcrypt: {
+    pass: "Mot de passe",
+    hash: "Valeur",
+    gen: "Hacher",
+    verify: "Vérifier",
+    match: "Correspondance ✅",
+    mismatch: "Non-correspondance ❌",
+    pageDesc:
+      "Générez et vérifiez des hachages à coût variable avec des sels forts.",
+    costTip:
+      "* Des valeurs plus élevées augmentent la sécurité mais ralentissent la génération. (Recommandé : 10-12)",
+    securityTipTitle: "Conseil de sécurité",
+    securityTipDesc:
+      "Bcrypt génère automatiquement un sel unique pour chaque hachage afin d'empêcher les attaques par table arc-en-ciel.",
   },
 
   // SHA 암호화 도구 문구 영역
@@ -62,12 +69,13 @@ export const fr: LanguagePack = {
     desc: "Hachez vos données avec de puissants algorithmes de chiffrement unidirectionnels.",
     placeholder: "Entrez le contenu à chiffrer...",
     labelAlgo: "Sélectionner l'algorithme",
-    labelInput: "Texte brut"
+    labelInput: "Texte brut",
   },
 
   // 감사 팝업 및 후원 문구 영역
   thanksTitle: "Merci !",
-  thanksMsg: "Merci d'utiliser MacGyver-Tool.\nVotre soutien est d'une grande aide pour le développeur.",
+  thanksMsg:
+    "Merci d'utiliser MacGyver-Tool.\nVotre soutien est d'une grande aide pour le développeur.",
   donateBtn: "Soutenir ❤️",
-  closeBtn: "Fermer"
+  closeBtn: "Fermer",
 };

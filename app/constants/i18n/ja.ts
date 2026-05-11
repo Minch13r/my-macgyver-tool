@@ -5,11 +5,11 @@ import type { LanguagePack } from "./type";
 export const ja: LanguagePack = {
   title: "MacGyver-Tool",
   theme: "テーマ",
-  sideMenu: { 
-    img: "画像変換", 
-    count: "文字数カウント", 
-    sha: "SHA暗号化", 
-    bcrypt: "Bcrypt暗号化" 
+  sideMenu: {
+    img: "画像変換",
+    count: "文字数カウント",
+    sha: "SHA暗号化",
+    bcrypt: "Bcrypt暗号化",
   },
   search: "ツールを検索...",
   donate: "コーヒーを支援する",
@@ -37,24 +37,30 @@ export const ja: LanguagePack = {
     base64: "Base64抽出",
     zipBtn: "ZIP一括ダウンロード",
     clear: "リストをクリア",
-    favicon: "ファビコン生成 (32x32)"
+    favicon: "ファビコン生成 (32x32)",
   },
 
   // 글자수 세기 도구 문구 영역
-  counter: { 
-    placeholder: "ここに入력してください...", 
-    char: "文字数", 
-    byte: "バイト" 
+  counter: {
+    placeholder: "ここに入력してください...",
+    char: "文字数",
+    byte: "バイト",
   },
 
   // Bcrypt 암호화 도구 문구 영역
-  bcrypt: { 
-    pass: "パスワード", 
-    hash: "ハッシュ値", 
-    gen: "ハッシュ生成", 
-    verify: "一致検証", 
-    match: "一致しています ✅", 
-    mismatch: "一致していません ❌" 
+  bcrypt: {
+    pass: "パスワード",
+    hash: "ハッシュ値",
+    gen: "ハッシュ生成",
+    verify: "一致検証",
+    match: "一致しています ✅",
+    mismatch: "一致していません ❌",
+    pageDesc: "強力なソルトを含む可変コストハッシュを生成し、検証します。",
+    costTip:
+      "* 値が高いほどセキュリティは向上しますが、生成速度は低下します。(推奨: 10-12)",
+    securityTipTitle: "セキュリティチップ",
+    securityTipDesc:
+      "Bcryptは、レインボーテーブル攻撃を防ぐために、各ハッシュに対して一意のソルトを自動的に生成します。",
   },
 
   // SHA 암호화 도구 문구 영역
@@ -62,12 +68,13 @@ export const ja: LanguagePack = {
     desc: "強力な一方向暗号化アルゴリズムでデータをハッシュ化します。",
     placeholder: "暗号化する内容を入力してください...",
     labelAlgo: "アルゴリズム選択",
-    labelInput: "プレーンテキスト"
+    labelInput: "プレーンテキスト",
   },
 
   // 감사 팝업 및 후원 문구 영역
   thanksTitle: "ありがとうございます！",
-  thanksMsg: "MacGyver-Toolをご利用いただきありがとうございます。\n皆様の支援が開発の大きな励みになります。",
+  thanksMsg:
+    "MacGyver-Toolをご利用いただきありがとうございます。\n皆様の支援が開発の大きな励みになります。",
   donateBtn: "支援する ❤️",
-  closeBtn: "閉じる"
+  closeBtn: "閉じる",
 };

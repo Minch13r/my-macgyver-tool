@@ -5,11 +5,11 @@ import type { LanguagePack } from "./type";
 export const es: LanguagePack = {
   title: "MacGyver-Tool",
   theme: "Tema",
-  sideMenu: { 
-    img: "Conv Imagen", 
-    count: "Contador", 
-    sha: "SHA Hash", 
-    bcrypt: "Bcrypt Hash" 
+  sideMenu: {
+    img: "Conv Imagen",
+    count: "Contador",
+    sha: "SHA Hash",
+    bcrypt: "Bcrypt Hash",
   },
   search: "Buscar herramientas...",
   donate: "Apoya con un café",
@@ -37,24 +37,30 @@ export const es: LanguagePack = {
     base64: "Extraer Base64",
     zipBtn: "Descargar todo en ZIP",
     clear: "Limpiar lista",
-    favicon: "Generar Favicon (32x32)"
+    favicon: "Generar Favicon (32x32)",
   },
 
   // 글자수 세기 도구 문구 영역
-  counter: { 
-    placeholder: "Escribe aquí...", 
-    char: "Caracteres", 
-    byte: "Bytes" 
+  counter: {
+    placeholder: "Escribe aquí...",
+    char: "Caracteres",
+    byte: "Bytes",
   },
 
   // Bcrypt 암호화 도구 문구 영역
-  bcrypt: { 
-    pass: "Contraseña", 
-    hash: "Valor Hash", 
-    gen: "Generar Hash", 
-    verify: "Verificar", 
-    match: "Coincide ✅", 
-    mismatch: "No coincide ❌" 
+  bcrypt: {
+    pass: "Contraseña",
+    hash: "Valor Hash",
+    gen: "Generar Hash",
+    verify: "Verificar",
+    match: "Coincide ✅",
+    mismatch: "No coincide ❌",
+    pageDesc: "Genere y verifique hashes de costo variable con sales potentes.",
+    costTip:
+      "* Los números más altos aumentan la seguridad pero ralentizan la generación. (Recomendado: 10-12)",
+    securityTipTitle: "Consejo de seguridad",
+    securityTipDesc:
+      "Bcrypt genera automáticamente una sal única para cada hash para evitar ataques de tablas arcoíris.",
   },
 
   // SHA 암호화 도구 문구 영역
@@ -62,12 +68,13 @@ export const es: LanguagePack = {
     desc: "Hashee sus datos con potentes algoritmos de cifrado unidireccionales.",
     placeholder: "Ingrese el contenido a cifrar...",
     labelAlgo: "Seleccionar algoritmo",
-    labelInput: "Texto plano"
+    labelInput: "Texto plano",
   },
 
   // 감사 팝업 및 후원 문구 영역
   thanksTitle: "¡Gracias!",
-  thanksMsg: "Gracias por usar MacGyver-Tool.\nTu apoyo es de gran ayuda para el desarrollador.",
+  thanksMsg:
+    "Gracias por usar MacGyver-Tool.\nTu apoyo es de gran ayuda para el desarrollador.",
   donateBtn: "Apoyar ❤️",
-  closeBtn: "Cerrar"
+  closeBtn: "Cerrar",
 };

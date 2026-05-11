@@ -5,7 +5,12 @@ import type { LanguagePack } from "./type";
 export const ko: LanguagePack = {
   title: "MacGyver-Tool",
   theme: "테마",
-  sideMenu: { img: "이미지 변환", count: "글자수 세기", sha: "SHA 암호화", bcrypt: "Bcyrpt 암호화" },
+  sideMenu: {
+    img: "이미지 변환",
+    count: "글자수 세기",
+    sha: "SHA 암호화",
+    bcrypt: "Bcyrpt 암호화",
+  },
   search: "도구 검색...",
   donate: "커피 한 잔 후원하기",
   toss: "토스 익명 송금하기",
@@ -31,18 +36,36 @@ export const ko: LanguagePack = {
     base64: "Base64 코드 추출",
     zipBtn: "ZIP으로 일괄 다운로드",
     clear: "목록 비우기",
-    favicon: "파비콘 생성 (32x32)"
+    favicon: "파비콘 생성 (32x32)",
   },
-  counter: { placeholder: "내용을 입력해 주세요...", char: "글자수", byte: "바이트" },
-  bcrypt: { pass: "비밀번호", hash: "해시값", gen: "해시 생성", verify: "일치 검증", match: "일치합니다 ✅", mismatch: "일치하지 않습니다 ❌" },
+  counter: {
+    placeholder: "내용을 입력해 주세요...",
+    char: "글자수",
+    byte: "바이트",
+  },
+  bcrypt: {
+    pass: "비밀번호",
+    hash: "해시값",
+    gen: "해시 생성",
+    verify: "일치 검증",
+    match: "일치합니다 ✅",
+    mismatch: "일치하지 않습니다 ❌",
+    pageDesc: "강력한 솔트가 포함된 가변 비용 해시를 생성하고 검증하십시오.",
+    costTip:
+      "* 숫자가 높을수록 보안이 강력해지지만 생성 속도가 느려집니다. (권장: 10-12)",
+    securityTipTitle: "보안 팁",
+    securityTipDesc:
+      "Bcrypt는 레인보우 테이블 공격을 방지하기 위해 각 해시마다 고유한 솔트를 자동으로 생성합니다.",
+  },
   sha: {
     desc: "강력한 일방향 암호화 알고리즘으로 데이터를 해싱하십시오.",
     placeholder: "암호화할 내용을 입력하십시오...",
     labelAlgo: "알고리즘 선택",
-    labelInput: "원문 텍스트"
+    labelInput: "원문 텍스트",
   },
   thanksTitle: "감사합니다!",
-  thanksMsg: "MacGyver-Tool을 사용해주셔서 감사합니다.\n후원해주시면 개발자에게 큰 도움이 됩니다.",
+  thanksMsg:
+    "MacGyver-Tool을 사용해주셔서 감사합니다.\n후원해주시면 개발자에게 큰 도움이 됩니다.",
   donateBtn: "후원하러 가기 ❤️",
-  closeBtn: "닫기"
+  closeBtn: "닫기",
 };
