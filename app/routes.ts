@@ -15,6 +15,8 @@ export default [
     // 글자수 세기
     route("counter", "routes/counter.tsx"),
     // sha 암호화
-    route("sha", "routes/sha.tsx")
+    route("sha", "routes/sha.tsx"),
+    // bcrypt
+    route("bcrypt", "routes/bcrypt.tsx"),
   ]),
 ] satisfies RouteConfig;
