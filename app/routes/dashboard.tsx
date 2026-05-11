@@ -1,6 +1,6 @@
 // app/routes/dashboard.tsx
 import type { Route } from "../+types/root";
-import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "~/constants/i18n";
 import Home from "~/components/dashboard/Home";
 
 export function meta({ params }: Route.MetaArgs) {

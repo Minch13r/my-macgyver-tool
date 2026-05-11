@@ -1,6 +1,6 @@
 // app/hooks/useDonateContent.ts
 import { useParams } from "react-router";
-import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "~/constants/i18n";
 
 {
   /* 언어별 후원 페이지 문구 데이터 정의 영역 */

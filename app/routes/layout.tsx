@@ -1,7 +1,7 @@
 // app/routes/layout.tsx 영역
 import { useState } from "react";
 import { Outlet, useParams, useLocation } from "react-router";
-import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "~/constants/i18n";
 import { Image, Hash, ShieldCheck, Calculator } from "lucide-react";
 
 // 조각들 불러오기 영역

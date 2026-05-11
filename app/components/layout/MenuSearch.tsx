@@ -1,7 +1,7 @@
 // app/components/layout/MenuSearch.tsx
 import { useParams } from "react-router";
 import { Search, X } from "lucide-react";
-import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "~/constants/i18n";
 
 {/* 검색 상태만 관리하는 인터페이스 영역 */}
 interface MenuSearchProps {

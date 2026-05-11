@@ -15,7 +15,7 @@ import {
   DICTIONARY,
   DEFAULT_LANG,
   type LanguagePack,
-} from "../../constants/dictionary";
+} from "../../constants/i18n";
 
 export const UtilityManager: React.FC = () => {
   // 현재 URL 경로 기반 언어 파라미터 추출 영역

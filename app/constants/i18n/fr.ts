@@ -1,0 +1,73 @@
+// src/constants/i18n/fr.ts
+import type { LanguagePack } from "./type";
+
+// 프랑스어 사전 데이터 정의 영역
+export const fr: LanguagePack = {
+  title: "MacGyver-Tool",
+  theme: "Mode",
+  sideMenu: { 
+    img: "Conv Image", 
+    count: "Compteur", 
+    sha: "SHA Hash", 
+    bcrypt: "Bcrypt Hash" 
+  },
+  search: "Rechercher des outils...",
+  donate: "Soutenir avec un café",
+  paypal: "Soutenir avec PayPal",
+  adFree: "Entrer le code sans publicité",
+  adActive: "Mode sans publicité actif",
+  desc: "Outils en ligne gratuits pour la conversion d'images, le comptage et le hachage.",
+  copy: "Copier",
+  download: "Télécharger",
+
+  // 이미지 변환 도구 문구 영역
+  img: {
+    drag: "Cliquez ou glissez l'image ici",
+    format: "Format cible",
+    desc: "Générateur de favicon et convertisseur d'images professionnel gratuit en ligne. \nCréez facilement des icônes de site Web, redimensionnez, compressez et convertissez des images (PNG, JPG, WebP) par lots sans perte de qualité. \nVotre boîte à outils numérique tout-en-un.",
+    drop: "Déposez vos fichiers ici",
+    click: "ou cliquez pour parcourir les fichiers",
+    processing: "Traitement...",
+    convBtn: "Téléchargement individuel",
+    quality: "Qualité de compression",
+    resize: "Redimensionner (0 pour original)",
+    width: "Largeur(px)",
+    height: "Hauteur(px)",
+    keepRatio: "Garder le ratio",
+    base64: "Extraire Base64",
+    zipBtn: "Télécharger tout en ZIP",
+    clear: "Vider la liste",
+    favicon: "Générer un Favicon (32x32)"
+  },
+
+  // 글자수 세기 도구 문구 영역
+  counter: { 
+    placeholder: "Écrivez ici...", 
+    char: "Caractères", 
+    byte: "Octets" 
+  },
+
+  // Bcrypt 암호화 도구 문구 영역
+  bcrypt: { 
+    pass: "Mot de passe", 
+    hash: "Valeur", 
+    gen: "Hacher", 
+    verify: "Vérifier", 
+    match: "Correspondance ✅", 
+    mismatch: "Non-correspondance ❌" 
+  },
+
+  // SHA 암호화 도구 문구 영역
+  sha: {
+    desc: "Hachez vos données avec de puissants algorithmes de chiffrement unidirectionnels.",
+    placeholder: "Entrez le contenu à chiffrer...",
+    labelAlgo: "Sélectionner l'algorithme",
+    labelInput: "Texte brut"
+  },
+
+  // 감사 팝업 및 후원 문구 영역
+  thanksTitle: "Merci !",
+  thanksMsg: "Merci d'utiliser MacGyver-Tool.\nVotre soutien est d'une grande aide pour le développeur.",
+  donateBtn: "Soutenir ❤️",
+  closeBtn: "Fermer"
+};

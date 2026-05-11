@@ -2,7 +2,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { useParams } from "react-router";
 import JSZip from "jszip";
-import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "~/constants/i18n";
 
 // 이미지 상세 정보 인터페이스 정의 영역
 export interface ImageInfo {

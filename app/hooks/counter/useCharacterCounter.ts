@@ -1,7 +1,7 @@
 // app/hooks/count/useCharacterCounter.ts
 import { useState, useCallback, useMemo } from "react";
 import { useParams } from "react-router";
-import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "~/constants/i18n";
 
 export function useCharacterCounter() {
   const { lang } = useParams();

@@ -5,7 +5,7 @@ import { useShaEncrypt } from "~/hooks/sha/useShaEncrypt";
 import { AlgoSelector, HashOutput } from "~/components/sha/ShaUI";
 import { DonateModal } from "~/components/image/DonateModal";
 import type { MetaFunction } from "react-router";
-import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "~/constants/i18n";
 
 // 메타 데이터 정의 영역
 export const meta: MetaFunction = ({ params }) => {

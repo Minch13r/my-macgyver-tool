@@ -1,6 +1,6 @@
 // app/pages/dashboard/Home.tsx
 import { useParams } from "react-router";
-import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "~/constants/i18n";
 import { UtilityManager } from "~/components/tools/UtilityManager";
 
 export default function Home() {

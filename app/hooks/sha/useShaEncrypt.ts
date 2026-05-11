@@ -1,7 +1,7 @@
 // app/hooks/sha/useShaEncrypt.ts
 import { useState, useCallback, useEffect } from "react";
 import { useParams } from "react-router";
-import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "~/constants/i18n";
 
 export function useShaEncrypt() {
   const { lang } = useParams();

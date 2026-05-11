@@ -3,7 +3,7 @@ import { FileText, Trash2, Type, Hash, Database } from "lucide-react";
 import { useCharacterCounter } from "~/hooks/counter/useCharacterCounter";
 import { StatCard, TextEditor } from "~/components/counter/CounterUI";
 import type { MetaFunction } from "react-router";
-import { DICTIONARY, DEFAULT_LANG } from "~/constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "~/constants/i18n";
 
 // 메타 데이터 및 SEO 설정 영역
 export const meta: MetaFunction = ({ params }) => {

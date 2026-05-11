@@ -1,6 +1,6 @@
 import { redirect } from "react-router";
 import type { Route } from "./+types/home";
-import { DICTIONARY, DEFAULT_LANG } from "../constants/dictionary";
+import { DICTIONARY, DEFAULT_LANG } from "../constants/i18n";
 
 export function loader({ request }: Route.LoaderArgs) {
   // 브라우저 언어 확인 및 기본값 설정
