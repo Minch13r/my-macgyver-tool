@@ -13,6 +13,8 @@ export default [
     // 이미지 변환
     route("image-conv", "routes/image-converter.tsx"),
     // 글자수 세기
-    route("counter", "routes/counter.tsx")
+    route("counter", "routes/counter.tsx"),
+    // sha 암호화
+    route("sha", "routes/sha.tsx")
   ]),
 ] satisfies RouteConfig;
