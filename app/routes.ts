@@ -11,6 +11,8 @@ export default [
     // 후원
     route("donate", "routes/donate.tsx"), 
     // 이미지 변환
-    route("image-conv", "routes/image-converter.tsx")
+    route("image-conv", "routes/image-converter.tsx"),
+    // 글자수 세기
+    route("counter", "routes/counter.tsx")
   ]),
 ] satisfies RouteConfig;
