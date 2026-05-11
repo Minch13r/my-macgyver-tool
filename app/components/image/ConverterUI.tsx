@@ -1,5 +1,5 @@
 // app/components/image/ConverterUI.tsx
-import { Upload, FileType, Check, Copy, Sparkles, FileImage, Trash2, Info } from "lucide-react";
+import { Upload, FileType, Check, Copy, Sparkles, Trash2, Info } from "lucide-react";
 import { useState } from "react";
 import type { ImageInfo } from "~/hooks/image/useImageConverter";
 
@@ -63,7 +63,6 @@ export const PreviewList = ({ previews }: { previews: ImageInfo[] }) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2 text-slate-400 px-2">
-        <Info size={16} />
         <span className="text-xs font-black uppercase tracking-widest">Image Details</span>
       </div>
       
@@ -120,15 +119,27 @@ export const FaviconButton = ({ onClick, label }: { onClick: () => void; label: 
 
 /**
  * 4. Base64 결과창 영역
- * 추출된 코드를 확인하고 복사하는 부품
+ * 추출된 코드를 확인하고 복사하는 부품 (감사 팝업 트리거 포함)
  */
-export const Base64Output = ({ result, label }: { result: string; label: string }) => {
+export const Base64Output = ({ 
+  result, 
+  label, 
+  onShowModal
+}: { 
+  result: string; 
+  label: string; 
+  onShowModal: () => void; 
+}) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleCopy = () => {
     if (!result) return;
     navigator.clipboard.writeText(result);
     setIsCopied(true);
+    
+    // 📍 복사 성공 시 부모에게 팝업 요청 영역
+    onShowModal(); 
+    
     setTimeout(() => setIsCopied(false), 2000);
   };
 

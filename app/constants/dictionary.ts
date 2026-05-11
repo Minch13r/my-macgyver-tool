@@ -10,7 +10,7 @@ export interface LanguagePack {
     sha: string;
     bcrypt: string;
   };
-  search: string; // 📍 검색창 안내 문구 항목 추가 영역
+  search: string;
   donate: string;
   toss?: string;
   paypal?: string;
@@ -50,6 +50,10 @@ export interface LanguagePack {
     match: string;
     mismatch: string;
   };
+  thanksTitle: string;
+  thanksMsg: string;
+  donateBtn: string;
+  closeBtn: string;
 }
 
 export const DEFAULT_LANG = "en";
@@ -88,6 +92,10 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     },
     counter: { placeholder: "Type here...", char: "Characters", byte: "Bytes" },
     bcrypt: { pass: "Password", hash: "Hash", gen: "GENERATE HASH", verify: "VERIFY", match: "MATCHED ✅", mismatch: "MISMATCHED ❌" },
+    thanksTitle: "Thank You!",
+    thanksMsg: "Thank you for using MacGyver-Tool.\nYour support is a great help to the developer.",
+    donateBtn: "Support Now ❤️",
+    closeBtn: "Close"
   },
   ko: {
     title: "MacGyver-Tool",
@@ -122,6 +130,10 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     },
     counter: { placeholder: "내용을 입력해 주세요...", char: "글자수", byte: "바이트" },
     bcrypt: { pass: "비밀번호", hash: "해시값", gen: "해시 생성", verify: "일치 검증", match: "일치합니다 ✅", mismatch: "일치하지 않습니다 ❌" },
+    thanksTitle: "감사합니다!",
+    thanksMsg: "MacGyver-Tool을 사용해주셔서 감사합니다.\n후원해주시면 개발자에게 큰 도움이 됩니다.",
+    donateBtn: "후원하러 가기 ❤️",
+    closeBtn: "닫기"
   },
   ja: {
     title: "MacGyver-Tool",
@@ -149,12 +161,16 @@ export const DICTIONARY: Record<string, LanguagePack> = {
       height: "高さ(px)",
       keepRatio: "比率を維持",
       base64: "Base64抽出",
-      zipBtn: "ZIP一括ダウンロード",
+      zipBtn: "ZIP一ダウンロード",
       clear: "リストをクリア",
       favicon: "ファビコン生成 (32x32)"
     },
     counter: { placeholder: "ここに入力してください...", char: "文字数", byte: "バイト" },
     bcrypt: { pass: "パスワード", hash: "ハッシュ値", gen: "ハッシュ生成", verify: "一致検証", match: "一致しています ✅", mismatch: "一致していません ❌" },
+    thanksTitle: "ありがとうございます！",
+    thanksMsg: "MacGyver-Toolをご利用いただきありがとうございます。\n皆様の支援が開発の大きな励みになります。",
+    donateBtn: "支援する ❤️",
+    closeBtn: "閉じる"
   },
   fr: {
     title: "MacGyver-Tool",
@@ -188,6 +204,10 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     },
     counter: { placeholder: "Écrivez ici...", char: "Caractères", byte: "Octets" },
     bcrypt: { pass: "Mot de passe", hash: "Valeur", gen: "Hacher", verify: "Vérifier", match: "Correspondance ✅", mismatch: "Non-correspondance ❌" },
+    thanksTitle: "Merci !",
+    thanksMsg: "Merci d'utiliser MacGyver-Tool.\nVotre soutien est d'une grande aide pour le développeur.",
+    donateBtn: "Soutenir ❤️",
+    closeBtn: "Fermer"
   },
   es: {
     title: "MacGyver-Tool",
@@ -221,5 +241,9 @@ export const DICTIONARY: Record<string, LanguagePack> = {
     },
     counter: { placeholder: "Escribe aquí...", char: "Caracteres", byte: "Bytes" },
     bcrypt: { pass: "Contraseña", hash: "Valor Hash", gen: "Generar Hash", verify: "Verificar", match: "Coincide ✅", mismatch: "No coincide ❌" },
+    thanksTitle: "¡Gracias!",
+    thanksMsg: "Gracias por usar MacGyver-Tool.\nTu apoyo es de gran ayuda para el desarrollador.",
+    donateBtn: "Apoyar ❤️",
+    closeBtn: "Cerrar"
   },
 };
