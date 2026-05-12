@@ -11,7 +11,6 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
-// 사전에 정의한 언어 정보를 가져오는 영역
 import { DICTIONARY, DEFAULT_LANG } from "./constants/i18n";
 
 export const links: Route.LinksFunction = () => [
@@ -25,6 +24,8 @@ export const links: Route.LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
   },
+  // 파비콘 설정 영역
+  { rel: "icon", href: "/favicon.ico" },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -43,7 +44,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased transition-colors">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -56,6 +57,7 @@ export default function App() {
   return <Outlet />;
 }
 
+// 디자인이 강화된 에러 경계 영역
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
@@ -73,14 +75,25 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
+    <main className="min-h-screen flex flex-col items-center justify-center p-8 text-center animate-in fade-in duration-500">
+      <div className="max-w-md space-y-6">
+        <h1 className="text-9xl font-black text-slate-100 dark:text-slate-900 select-none">{message}</h1>
+        <div className="space-y-2">
+          <h2 className="text-2xl font-bold tracking-tight">Something went wrong</h2>
+          <p className="text-slate-500 dark:text-slate-400 font-medium">{details}</p>
+        </div>
+        {stack && (
+          <pre className="w-full p-4 overflow-x-auto bg-slate-50 dark:bg-slate-900 rounded-2xl text-left text-xs font-mono border border-slate-100 dark:border-slate-800">
+            <code>{stack}</code>
+          </pre>
+        )}
+        <a 
+          href="/" 
+          className="inline-block py-4 px-8 bg-blue-600 text-white rounded-2xl font-black shadow-xl shadow-blue-500/20 hover:scale-105 transition-all"
+        >
+          Go Back Home
+        </a>
+      </div>
     </main>
   );
 }
