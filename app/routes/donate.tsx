@@ -51,7 +51,7 @@ export default function DonatePage() {
       >
         {/* 1. Ko-fi 카드 (해외용) 영역 */}
         <SupportCard
-          href="https://ko-fi.com/민영님아이디"
+          href="https://ko-fi.com/notyet"
           icon={<Coffee size={40} />}
           title="Ko-fi"
           desc={activeContent.kofiDesc}
@@ -63,7 +63,7 @@ export default function DonatePage() {
 
         {/* 2. PayPal 카드 (해외용) 영역 */}
         <SupportCard
-          href="https://paypal.me/민영님아이디"
+          href="https://paypal.me/notyet"
           icon={<CreditCard size={40} />}
           title={dictionary.paypal || "PayPal"}
           desc={activeContent.paypalDesc}
@@ -76,7 +76,7 @@ export default function DonatePage() {
         {/* 3. Toss 카드 (한국용) 영역 */}
         {showToss && (
           <SupportCard
-            href="https://toss.me/민영님아이디"
+            href="https://toss.me/notyet"
             title={dictionary.toss || "Toss"}
             icon={<Heart size={40} />}
             desc={activeContent.tossDesc}
