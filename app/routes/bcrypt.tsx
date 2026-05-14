@@ -1,26 +1,26 @@
 // app/routes/bcrypt.tsx
 import { useState } from "react";
-import { Lock, RefreshCw, ShieldAlert } from "lucide-react";
+import { Lock, ShieldAlert } from "lucide-react";
 import { useBcrypt } from "~/hooks/bcrypt/useBcrypt";
 import { CostSlider, BcryptResult, BcryptTabs, BcryptVerifyForm } from "~/components/bcrypt/BcryptUI";
 import { DonateModal } from "~/components/image/DonateModal";
 import type { MetaFunction } from "react-router";
 import { DICTIONARY, DEFAULT_LANG } from "~/constants/i18n";
 
-// 메타 데이터 및 SEO 설정 영역
+// 메타 데이터 및 SEO 설정
 export const meta: MetaFunction = ({ params }) => {
   const lang = params.lang || DEFAULT_LANG;
   const t = DICTIONARY[lang];
   return [
     { title: `${t.sideMenu.bcrypt} | ${t.title}` },
-    { name: "description", content: t.bcrypt.pageDesc } // 📍 다국어 설명 적용 영역
+    { name: "description", content: t.bcrypt.pageDesc }
   ];
 };
 
 export default function BcryptPage() {
   const [isThanksModalOpen, setIsThanksModalOpen] = useState(false);
   
-  // 커스텀 훅 로직 및 다국어 사전 주입 영역
+  // 로직 및 다국어 데이터 주입
   const { 
     t, currentLang, activeTab, setActiveTab,
     password, setPassword, cost, setCost, hash, generateHash,
@@ -29,48 +29,61 @@ export default function BcryptPage() {
   } = useBcrypt();
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in duration-500 pb-20">
-      {/* 상단 제목 및 다국어 설명 섹션 영역 */}
-      <div className="space-y-2 text-center md:text-left">
-        <h1 className="text-4xl font-black tracking-tighter text-slate-900 dark:text-white flex items-center justify-center md:justify-start gap-3">
-          <Lock className="text-indigo-600 w-10 h-10" /> {t.sideMenu.bcrypt}
+    <div className="max-w-5xl mx-auto space-y-12 animate-in fade-in duration-700 pb-20">
+      
+      {/* 상단 헤더: 피드백 페이지 스타일 적용 */}
+      <div className="space-y-4 text-center md:text-left">
+        <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+          <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-2xl">
+            <Lock className="text-blue-600 w-8 h-8 stroke-[2.5]" />
+          </div>
+        </div>
+        <h1 className="text-5xl font-black tracking-tighter uppercase leading-none">
+          <span className="text-slate-900 dark:text-white">
+            {t.sideMenu.bcrypt.split(" ")[0]}
+          </span>
+          <span className="text-transparent bg-clip-text bg-linear-to-br from-blue-600 to-indigo-400">
+            {" "}{t.sideMenu.bcrypt.split(" ").slice(1).join(" ") || "HASH"}
+          </span>
         </h1>
-        <p className="text-slate-500 font-medium tracking-tight">
-          {t.bcrypt.pageDesc} {/* 📍 다국어 설명 적용 영역 */}
+        <p className="text-slate-500 font-medium tracking-tight max-w-xl">
+          {t.bcrypt.pageDesc}
         </p>
       </div>
 
-      {/* 해시 생성 및 검증 탭 전환 영역 */}
+      {/* 탭 전환 버튼 영역 */}
       <BcryptTabs activeTab={activeTab} onTabChange={setActiveTab} t={t} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <div className="lg:col-span-7">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        {/* 왼쪽 입력 폼 카드 */}
+        <div className="lg:col-span-7 p-10 bg-white dark:bg-slate-900 rounded-[3rem] shadow-2xl shadow-blue-500/5 border border-slate-100 dark:border-slate-800">
           {activeTab === "hash" ? (
             <div className="space-y-8 animate-in fade-in slide-in-from-left duration-500">
               <div className="space-y-4">
+                <div className="flex items-center gap-2 text-slate-400 ml-1">
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em]">Password</span>
+                </div>
                 <input
                   type="text" 
                   value={password} 
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder={t.bcrypt.passPlaceholder || "Enter password to hash..."}
-                  className="w-full p-6 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-100 dark:border-slate-800 focus:border-indigo-500 outline-none text-lg font-bold shadow-xl"
+                  placeholder={t.bcrypt.passPlaceholder}
+                  className="w-full p-7 bg-slate-50 dark:bg-slate-950 rounded-[2.5rem] border border-transparent focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/5 outline-none font-bold text-lg transition-all"
                 />
               </div>
               
-              {/* 📍 다국어 팁 출력을 위해 t 전달 영역 */}
               <CostSlider value={cost} onChange={setCost} t={t} />
               
               <button
                 onClick={generateHash}
                 disabled={!password || isProcessing}
-                className="w-full py-5 bg-indigo-600 text-white rounded-2xl font-black flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-indigo-500/20 disabled:opacity-50"
+                className="w-full py-5 bg-linear-to-br from-blue-600 to-indigo-400 text-white rounded-2xl font-black flex items-center justify-center gap-3 hover:scale-[1.01] active:scale-[0.99] transition-all shadow-xl shadow-blue-500/25 disabled:opacity-50"
               >
                 {isProcessing ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> : <Lock size={20} />}
                 {t.bcrypt.gen}
               </button>
             </div>
           ) : (
-            /* 검증 모드 폼 배치 영역 */
             <BcryptVerifyForm 
               password={verifyPassword} setPassword={setVerifyPassword}
               hash={verifyHash} setHash={setVerifyHash}
@@ -80,26 +93,22 @@ export default function BcryptPage() {
           )}
         </div>
 
+        {/* 오른쪽 안내 및 결과 카드 */}
         <div className="lg:col-span-5 space-y-6">
-          {/* 보안 팁 안내 카드 영역 */}
-          <div className="p-8 bg-indigo-600 rounded-[2.5rem] text-white shadow-xl shadow-indigo-500/20 relative overflow-hidden h-fit">
+          <div className="p-8 bg-linear-to-br from-blue-600 to-indigo-500 rounded-[2.5rem] text-white shadow-xl shadow-blue-500/20 relative overflow-hidden h-fit">
             <ShieldAlert className="absolute -right-4 -bottom-4 w-32 h-32 opacity-10" />
-            <h3 className="text-xl font-black mb-2">
-              {t.bcrypt.securityTipTitle} {/* 📍 다국어 제목 적용 영역 */}
-            </h3>
-            <p className="text-indigo-100 text-sm font-medium leading-relaxed">
-              {t.bcrypt.securityTipDesc} {/* 📍 다국어 설명 적용 영역 */}
-            </p>
+            <h3 className="text-xl font-black mb-2">{t.bcrypt.securityTipTitle}</h3>
+            <p className="text-blue-50 text-sm font-medium leading-relaxed">{t.bcrypt.securityTipDesc}</p>
           </div>
           
-          {/* 해시화 모드일 때만 결과창 노출 영역 */}
           {activeTab === "hash" && (
-            <BcryptResult hash={hash} onShowModal={() => setIsThanksModalOpen(true)} t={t} />
+            <div className="animate-in fade-in slide-in-from-right duration-500">
+              <BcryptResult hash={hash} onShowModal={() => setIsThanksModalOpen(true)} t={t} />
+            </div>
           )}
         </div>
       </div>
 
-      {/* 후원 감사 팝업 영역 */}
       <DonateModal 
         isOpen={isThanksModalOpen} 
         onClose={() => setIsThanksModalOpen(false)} 
