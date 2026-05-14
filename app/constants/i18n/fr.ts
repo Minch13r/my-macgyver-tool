@@ -10,6 +10,7 @@ export const fr: LanguagePack = {
     count: "Compteur",
     sha: "SHA Hash",
     bcrypt: "Bcrypt Hash",
+    feedback: "Commentaires",
   },
   search: "Rechercher des outils...",
   donate: "Soutenir avec un café",
@@ -83,6 +84,19 @@ export const fr: LanguagePack = {
     title: "Êtes-vous perdu ?",
     desc: "La page que vous recherchez n'existe pas ou a été déplacée.",
     goHome: "Accueil",
-    goBack: "Retour"
-  }
+    goBack: "Retour",
+  },
+  feedback: {
+    title: "Envoyer un commentaire",
+    desc: "N'hésitez pas à suggérer de nouvelles fonctionnalités ou à signaler des problèmes.",
+    labelType: "Type de demande",
+    labelContent: "Détails",
+    placeholder: "Veuillez entrer les détails ici...",
+    typeFeature: "Suggestion",
+    typeBug: "Signalement de bug",
+    typeEtc: "Autres",
+    submitBtn: "Envoyer",
+    success: "Merci pour vos commentaires !",
+    error: "Échec de l'envoi. Veuillez réessuyer plus tard.",
+  },
 };

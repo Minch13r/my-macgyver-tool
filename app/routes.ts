@@ -18,6 +18,8 @@ export default [
     route("sha", "routes/sha.tsx"),
     // bcrypt
     route("bcrypt", "routes/bcrypt.tsx"),
+    // feedback
+    route("feedback", "routes/feedback.tsx")
   ]),
 
   // 그 외의 파일들

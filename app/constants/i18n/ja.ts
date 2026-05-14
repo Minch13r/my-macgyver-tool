@@ -10,6 +10,7 @@ export const ja: LanguagePack = {
     count: "文字数カウント",
     sha: "SHA暗号化",
     bcrypt: "Bcrypt暗号化",
+    feedback: "フィードバック",
   },
   search: "ツールを検索...",
   donate: "コーヒーを支援する",
@@ -82,6 +83,19 @@ export const ja: LanguagePack = {
     title: "道に迷いましたか？",
     desc: "お探しのページは存在しないか、移動した可能性があります。",
     goHome: "ホームに戻る",
-    goBack: "戻る"
-  }
+    goBack: "戻る",
+  },
+  feedback: {
+    title: "意見を送る",
+    desc: "新機能のリクエストや使用中の不便な点を自由にお書きください。",
+    labelType: "お問い合わせの種類",
+    labelContent: "詳細内容",
+    placeholder: "ここに詳細を入力してください...",
+    typeFeature: "機能リクエスト",
+    typeBug: "バグ報告",
+    typeEtc: "その他",
+    submitBtn: "意見を送信",
+    success: "貴重なご意見ありがとうございます！",
+    error: "送信に失敗しました。後でもう一度お試しください。",
+  },
 };

@@ -9,6 +9,7 @@ export interface LanguagePack {
     count: string;
     sha: string;
     bcrypt: string;
+    feedback?: string;
   };
   search: string;
   donate: string;
@@ -60,6 +61,19 @@ export interface LanguagePack {
     placeholder: string;
     labelAlgo: string;
     labelInput: string;
+  };
+  feedback: {
+    title: string;         // 페이지 제목
+    desc: string;          // 서비스 설명
+    labelType: string;     // 문의 종류 라벨
+    labelContent: string;  // 작성 내용 라벨
+    placeholder: string;   // 입력창 도움말
+    typeFeature: string;   // 기능 요청 유형
+    typeBug: string;       // 버그 제보 유형
+    typeEtc: string;       // 기타 문의 유형
+    submitBtn: string;     // 제출 버튼 문구
+    success: string;       // 완료 메시지
+    error?: string;        // 실패 메시지
   };
   thanksTitle: string;
   thanksMsg: string;

@@ -10,6 +10,7 @@ export const es: LanguagePack = {
     count: "Contador",
     sha: "SHA Hash",
     bcrypt: "Bcrypt Hash",
+    feedback: "Comentarios",
   },
   search: "Buscar herramientas...",
   donate: "Apoya con un café",
@@ -82,6 +83,19 @@ export const es: LanguagePack = {
     title: "¿Estás perdido?",
     desc: "La página que buscas no existe o ha sido movida.",
     goHome: "Inicio",
-    goBack: "Volver"
-  }
+    goBack: "Volver",
+  },
+  feedback: {
+    title: "Enviar comentarios",
+    desc: "Siéntase libre de sugerir nuevas funciones o informar problemas.",
+    labelType: "Tipo de consulta",
+    labelContent: "Contenido",
+    placeholder: "Ingrese los detalles aquí...",
+    typeFeature: "Sugerencia",
+    typeBug: "Reportar error",
+    typeEtc: "Otros",
+    submitBtn: "Enviar",
+    success: "¡Gracias por sus comentarios!",
+    error: "Error al enviar. Inténtelo de nuevo más tarde.",
+  },
 };
