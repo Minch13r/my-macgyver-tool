@@ -35,7 +35,7 @@ export function DonateModal({ isOpen, onClose, t, currentLang }: DonateModalProp
           <div className="space-y-2">
             <h2 className="text-2xl font-black text-slate-900 dark:text-white">{t.thanksTitle}</h2>
             <p className="text-slate-500 dark:text-slate-400 font-medium whitespace-pre-line leading-relaxed">
-              {t.thanksMsg}
+              {isDonationDisabled ? t.feedbackMsg : t.thanksMsg}
             </p>
           </div>
 

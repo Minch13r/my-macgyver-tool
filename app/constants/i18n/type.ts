@@ -79,6 +79,7 @@ export interface LanguagePack {
   thanksMsg: string;
   donateBtn: string;
   feedbackBtn: string;
+  feedbackMsg: string;
   closeBtn: string;
   notFound: {
     title: string;
