@@ -79,6 +79,7 @@ export const fr: LanguagePack = {
   thanksMsg:
     "Merci d'utiliser MacGyver-Tool.\nVotre soutien est d'une grande aide pour le développeur.",
   donateBtn: "Soutenir ❤️",
+  feedbackBtn: "Aller aux commentaires ❤️",
   closeBtn: "Fermer",
   notFound: {
     title: "Êtes-vous perdu ?",

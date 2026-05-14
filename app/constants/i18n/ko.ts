@@ -69,6 +69,7 @@ export const ko: LanguagePack = {
   thanksMsg:
     "MacGyver-Tool을 사용해주셔서 감사합니다.\n후원해주시면 개발자에게 큰 도움이 됩니다.",
   donateBtn: "후원하러 가기 ❤️",
+  feedbackBtn : "피드백하러 가기 ❤️",
   closeBtn: "닫기",
   notFound: {
     title: "길을 잃으셨나요?",
